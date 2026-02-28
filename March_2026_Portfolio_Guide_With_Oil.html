@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bit's Portfolio Reference 2026–2027</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Arial, sans-serif; font-size: 13px; background: #f0f2f5; color: #222; }
+
+  .top-banner {
+    background: #1F3864; color: #fff;
+    padding: 14px 24px; font-size: 17px; font-weight: bold;
+    letter-spacing: 0.5px; border-bottom: 3px solid #2E75B6;
+  }
+  .top-banner span { font-size: 12px; font-weight: normal; opacity: 0.7; margin-left: 16px; }
+
+  .tabs { display: flex; background: #16294f; padding: 0 12px; flex-wrap: wrap; }
+  .tab-btn {
+    padding: 10px 18px; cursor: pointer; color: #aac4e8; font-size: 12px;
+    font-weight: bold; border: none; background: none; border-bottom: 3px solid transparent;
+    transition: all 0.2s; white-space: nowrap;
+  }
+  .tab-btn:hover { color: #fff; background: rgba(255,255,255,0.07); }
+  .tab-btn.active { color: #fff; border-bottom: 3px solid #4fc3f7; background: rgba(255,255,255,0.1); }
+
+  .tab-content { display: none; padding: 18px 16px; }
+  .tab-content.active { display: block; }
+
+  .section-hdr {
+    background: #1F3864; color: #fff; font-weight: bold; font-size: 12px;
+    padding: 7px 12px; margin: 18px 0 0 0; letter-spacing: 0.5px;
+  }
+  .section-hdr.grey { background: #404040; }
+  .section-hdr.mid { background: #2E75B6; }
+
+  table { width: 100%; border-collapse: collapse; margin-bottom: 4px; }
+  th {
+    background: #2E75B6; color: #fff; font-size: 11px; font-weight: bold;
+    padding: 8px 8px; text-align: left; border: 1px solid #1a5a9a; white-space: nowrap;
+  }
+  td { padding: 7px 8px; border: 1px solid #dde3ec; font-size: 12px; vertical-align: top; line-height: 1.45; }
+  tr:hover td { filter: brightness(0.96); }
+
+  .core    { background: #EBF3FB; }
+  .income  { background: #E8F5E9; }
+  .spec    { background: #FFF8E1; }
+  .trim    { background: #FFF3E0; }
+  .exited  { background: #FFEBEE; }
+  .capture { background: #F3E5F5; }
+  .grey-row{ background: #ECEFF1; }
+
+  .tag {
+    display: inline-block; padding: 3px 8px; border-radius: 3px;
+    font-size: 11px; font-weight: bold; white-space: nowrap;
+  }
+  .tag-hold    { background: #BBDEFB; color: #0D47A1; }
+  .tag-buy     { background: #C8E6C9; color: #1B5E20; }
+  .tag-dip     { background: #FFE0B2; color: #E65100; }
+  .tag-trim    { background: #FFCCBC; color: #BF360C; }
+  .tag-exit    { background: #FFCDD2; color: #B71C1C; }
+  .tag-capture { background: #E1BEE7; color: #4A148C; }
+  .tag-watch   { background: #ECEFF1; color: #37474F; }
+  .tag-pending { background: #C5CAE9; color: #1A237E; }
+
+  .bull  { background: #E8F5E9; }
+  .bear  { background: #FFEBEE; }
+  .oil   { background: #FFF8E1; }
+  .em    { background: #ECEFF1; }
+  .bull-hdr  { background: #388E3C; color: #fff; }
+  .bear-hdr  { background: #C62828; color: #fff; }
+  .oil-hdr   { background: #E65100; color: #fff; }
+  .em-hdr    { background: #546E7A; color: #fff; }
+
+  .ticker { font-weight: bold; font-size: 13px; color: #1F3864; }
+  .company { font-size: 11px; color: #555; }
+  .priority-1 { background: #C8E6C9; color: #1B5E20; font-weight: bold; padding: 2px 6px; border-radius: 3px; }
+  .priority-2 { background: #BBDEFB; color: #0D47A1; font-weight: bold; padding: 2px 6px; border-radius: 3px; }
+
+  .note { font-size: 11px; color: #666; font-style: italic; }
+  .risk { font-size: 11px; color: #b71c1c; }
+  .catalyst { font-size: 11px; color: #1a5a2a; }
+
+  .legend-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 12px; }
+  .legend-item { display: flex; align-items: center; gap: 10px; margin: 6px 0; }
+  .legend-swatch { width: 120px; min-width: 120px; padding: 4px 8px; border-radius: 3px; font-size: 11px; font-weight: bold; text-align: center; }
+
+  .disclaimer {
+    background: #fff3e0; border-left: 4px solid #ff9800;
+    padding: 10px 14px; margin: 16px 0; font-size: 11px; color: #555; border-radius: 2px;
+  }
+
+  @media (max-width: 900px) {
+    .legend-grid { grid-template-columns: 1fr; }
+    td, th { font-size: 11px; padding: 5px 6px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="top-banner">
+  📊 2026 PORTFOLIO GUIDE
+  <span>2026–2027 · Updated Feb 28, 2026 · For informational use only — not financial advice</span>
+</div>
+
+<div class="tabs">
+  <button class="tab-btn active" onclick="showTab('master')">📊 Portfolio Master</button>
+  <button class="tab-btn" onclick="showTab('intl')">🌍 International Exposure</button>
+  <button class="tab-btn" onclick="showTab('oil')">🛢️ Oil Exposure</button>
+  <button class="tab-btn" onclick="showTab('income')">💸 Income & Rate Scenarios</button>
+  <button class="tab-btn" onclick="showTab('pipeline')">🎯 Add Pipeline</button>
+  <button class="tab-btn" onclick="showTab('macro')">🎲 Macro Scenarios</button>
+  <button class="tab-btn" onclick="showTab('legend')">📖 Legend</button>
+</div>
+<!-- ═══════════════════════════════════════ TAB 1: PORTFOLIO MASTER ═══ -->
+<div id="tab-master" class="tab-content active">
+<div class="disclaimer">⚠️ Exited positions removed: OWL, NLY, RXRX, ABCL, HCKT, OUST, WHR, UPS, FDP, BEP, EC, TRMB, APP, NOW, TYL, MANH, SE, ACI, FLOC, TEM</div>
+<div class="section-hdr">── 🏗️ SAAS / SOFTWARE CORE ──</div>
+<table>
+<tr>
+  <th style="width:80px">Ticker</th><th style="width:130px">Sector</th>
+  <th style="width:80px">Account</th><th style="width:90px">Action</th>
+  <th>Investment Thesis</th><th style="width:200px">Key Risks</th><th style="width:160px">Catalyst</th>
+</tr>
+<tr class="core"><td><div class="ticker">MSFT</div><div class="company">Microsoft</div></td><td>AI Infrastructure</td><td>SaaS Acct</td><td><span class="tag tag-hold">HOLD</span></td><td>AI infrastructure monopoly. Azure 39% YoY; Copilot 15M enterprise seats; OpenAI partnership central to every AI workflow.</td><td class="risk">Antitrust; OpenAI dependence; premium multiple in rate-rise.</td><td class="catalyst">Azure growth; Copilot attach rate; Fed dot plot.</td></tr>
+<tr class="core"><td><div class="ticker">ORCL</div><div class="company">Oracle</div></td><td>Cloud Infra</td><td>SaaS Acct</td><td><span class="tag tag-hold">HOLD</span></td><td>Hyperscaler-level cloud pivot. Won Meta, OpenAI & xAI contracts. Multi-cloud database moat extremely deep.</td><td class="risk">Transition not complete; legacy license drag; expensive multiple.</td><td class="catalyst">Q3 Cloud guidance; GPU cluster wins.</td></tr>
+<tr class="core"><td><div class="ticker">ZS</div><div class="company">Zscaler</div></td><td>Cybersecurity</td><td>SaaS Acct</td><td><span class="tag tag-hold">HOLD</span></td><td>Zero Trust security leader. AI Security ARR $400M+ growing 80% YoY. More AI = more attack surface = more ZS revenue.</td><td class="risk">Competitive pressure from PANW & CRWD; requires consistent ARR growth.</td><td class="catalyst">AI Security ARR hitting $500M+; large enterprise expansions.</td></tr>
+<tr class="core"><td><div class="ticker">VEEV</div><div class="company">Veeva Systems</div></td><td>Vertical SaaS</td><td>SaaS Acct</td><td><span class="tag tag-hold">HOLD</span></td><td>FDA regulatory moat in life sciences. Switching cost = clinical-trial invalidation. Essentially irreplaceable. AI agent launch upcoming.</td><td class="risk">Growth deceleration; Salesforce legacy data agreement overhang.</td><td class="catalyst">Q4 results + AI agent platform launch; Vault CRM expansion.</td></tr>
+<tr class="core"><td><div class="ticker">CLS</div><div class="company">Celestica</div></td><td>AI Infrastructure</td><td>SaaS Acct</td><td><span class="tag tag-hold">HOLD</span></td><td>EMS/ODM manufacturer for AI data center servers. Direct picks-and-shovels play on hyperscaler capex. Real earnings, reasonable multiple.</td><td class="risk">Customer concentration; margin pressure if AI capex cools.</td><td class="catalyst">Hyperscaler server demand; new AI rack design wins.</td></tr>
+<tr class="core"><td><div class="ticker">ALAB</div><div class="company">Astera Labs</div></td><td>AI Connectivity</td><td>SaaS Acct</td><td><span class="tag tag-hold">HOLD</span></td><td>AI data center connectivity chips — PCIe, CXL, and Ethernet interconnects purpose-built for GPU-to-memory workloads. Hyperscaler design wins across major cloud providers. Direct infrastructure layer in every AI cluster build. Pairs with CLS as the picks-and-shovels AI infra basket.</td><td class="risk">Concentrated in data center capex cycle; expensive growth multiple; competition from Broadcom and Marvell in connectivity silicon.</td><td class="catalyst">Hyperscaler capex cycle; CXL standard adoption; new hyperscaler design wins; AI cluster expansion announcements.</td></tr>
+<tr class="core"><td><div class="ticker">LMAT</div><div class="company">LeMaitre Vascular</div></td><td>Medical Devices</td><td>SaaS Acct</td><td><span class="tag tag-hold">HOLD</span></td><td>Niche peripheral vascular surgery device maker. Consistent organic compounder. Very high gross margins, low competition.</td><td class="risk">Small-cap illiquidity; niche market limits TAM expansion.</td><td class="catalyst">Quarterly revenue growth; margin expansion.</td></tr>
+<tr class="core"><td><div class="ticker">QCOM</div><div class="company">Qualcomm</div></td><td>Semiconductors</td><td>SaaS Acct</td><td><span class="tag tag-hold">HOLD</span></td><td>AI PCs = 50% of Windows market by 2027. Snapdragon X dominance. $8B automotive expansion. Diversifying from handset dependency.</td><td class="risk">Apple in-house modem risk; China handset exposure; Samsung fab dependency.</td><td class="catalyst">PC Snapdragon attach rate; auto design win announcements.</td></tr>
+<tr class="core"><td><div class="ticker">DOCS</div><div class="company">Doximity</div></td><td>Healthcare SaaS</td><td>SaaS Acct</td><td><span class="tag tag-hold">HOLD</span></td><td>Dominant physician networking platform — 80%+ of US physicians use Doximity. High-margin SaaS. AI-powered clinical tools deepening monetization. Network effect moat nearly impossible to dislodge.</td><td class="risk">Healthcare IT competition; revenue concentration in pharma marketing spend; growth deceleration risk.</td><td class="catalyst">AI clinical tool adoption; pharma contract growth; enterprise health system wins.</td></tr>
+<tr class="core"><td><div class="ticker">QTWO</div><div class="company">Q2 Holdings</div></td><td>Fintech SaaS</td><td>SaaS Acct</td><td><span class="tag tag-hold">HOLD</span></td><td>Core banking software for community and regional banks. AI-driven banking modernization. High switching costs once deployed. Fintech-as-infrastructure play on the massive community bank digitization wave.</td><td class="risk">Community bank consolidation headwind; long enterprise sales cycles; competitive fintech market.</td><td class="catalyst">New bank client wins; AI banking product launches; revenue growth acceleration; rising bank IT budgets.</td></tr>
+</table>
+
+<div class="section-hdr">── 🌍 INTERNATIONAL CORE ──</div>
+<table>
+<tr><th style="width:150px">Ticker / Company</th><th style="width:90px">Sector</th><th style="width:100px">Country</th><th style="width:80px">Account</th><th style="width:90px">Action</th><th>Thesis</th><th style="width:200px">Key Risks</th><th style="width:160px">Catalyst</th></tr>
+<tr class="income"><td><div class="ticker">EQNR</div><div class="company">Equinor</div></td><td>Energy / Oil</td><td>Norway</td><td>Main Acct</td><td><span class="tag tag-hold">HOLD</span></td><td>State-backed Norwegian energy giant. ~7% dividend yield. North Sea + offshore Brazil + US assets. Inflation & oil hedge. Strong FCF.</td><td class="risk">Oil price decline; Norwegian tax policy; energy transition pressure.</td><td class="catalyst">Quarterly production & dividend; WTI oil price.</td></tr>
+<tr class="income"><td><div class="ticker">MRNFF</div><div class="company">Meren Energy (MER.V)</div></td><td>E&P / Upstream</td><td>Nigeria/Namibia</td><td>Main Acct</td><td><span class="tag tag-hold">HOLD</span></td><td>African offshore E&P. Deepwater Nigeria + Venus light oil discovery (TotalEnergies). $420M debt slashed. 62% below SWS fair value. 2.9x 2026 EBITDA.</td><td class="risk">Binary on Venus FID; Nigeria ops risk; oil price; thin OTC liquidity.</td><td class="catalyst">⚡ Venus FID H1 2026 (BINARY); Feb 25 earnings call.</td></tr>
+<tr class="income"><td><div class="ticker">IBN</div><div class="company">ICICI Bank</div></td><td>Banking</td><td>India</td><td>Main Acct</td><td><span class="tag tag-hold">HOLD</span></td><td>India's 2nd largest private bank. Digital banking leader. 44% EPS growth forecast 2025→2026. Credit penetration far below global peers.</td><td class="risk">Indian political risk; rupee/USD; rate sensitivity; NPL quality.</td><td class="catalyst">Quarterly NII growth; loan book expansion; digital metrics.</td></tr>
+<tr class="income"><td><div class="ticker">TME</div><div class="company">Tencent Music</div></td><td>Digital Entertainment</td><td>China</td><td>Main Acct</td><td><span class="tag tag-hold">HOLD</span></td><td>China's dominant music streaming + live audio platform. Real earnings growth. Asia digital platform basket.</td><td class="risk">Chinese ADR regulatory risk; Tencent parent overhang; US delisting risk.</td><td class="catalyst">MAU growth; paid subscriber conversion; Tencent strategic updates.</td></tr>
+<tr class="income"><td><div class="ticker">PHI</div><div class="company">PLDT</div></td><td>Telecom</td><td>Philippines</td><td>Main Acct</td><td><span class="tag tag-hold">HOLD</span></td><td>Philippines dominant telecom. Infrastructure moat. Dividend yield. Philippines GDP 5-6% annually. Demographic tailwind.</td><td class="risk">Capex intensity; peso risk; competition from DITO.</td><td class="catalyst">Subscriber growth; data ARPU expansion; capex completion.</td></tr>
+<tr class="income"><td><div class="ticker">ONON</div><div class="company">On Holding</div></td><td>Premium Consumer</td><td>Switzerland</td><td>Main Acct</td><td><span class="tag tag-hold">HOLD</span></td><td>Swiss premium athletic brand with proven innovation (CloudTec). Expanding from running into broader athletic lifestyle. Federer ambassador.</td><td class="risk">Premium brand vulnerable to consumer slowdown; high valuation.</td><td class="catalyst">Apparel expansion; US market share; new product launches.</td></tr>
+<tr class="income"><td><div class="ticker">ECO</div><div class="company">Okeanis Eco Tankers</div></td><td>Crude Tankers</td><td>Greece</td><td>Main Acct</td><td><span class="tag tag-hold">HOLD</span></td><td>100% scrubber-fitted eco VLCC/Suezmax fleet. Greek mgmt with skin in the game. Variable dividend tied to tanker rate cycles. Elevated oil = elevated shipping.</td><td class="risk">Tanker rate cyclicality; geopolitical route changes; crude demand shifts.</td><td class="catalyst">VLCC spot rates; fleet utilization; quarterly dividend.</td></tr>
+<tr class="income"><td><div class="ticker">HAFN</div><div class="company">Hafnia Limited</div></td><td>Product Tankers</td><td>Denmark/Singapore</td><td>Main Acct</td><td><span class="tag tag-hold">HOLD</span></td><td>One of the world's largest product tanker operators. MR and LR2 fleet carrying refined oil products — complements ECO's crude tanker exposure. Variable dividend tied to product tanker rate environment. Elevated refining activity = elevated HAFN demand.</td><td class="risk">Tanker rate cyclicality; refined product demand shifts; newbuild supply overhang; geopolitical route disruptions.</td><td class="catalyst">Product tanker rates; refinery throughput data; fleet utilization; quarterly dividend announcements.</td></tr>
+<tr class="core"><td><div class="ticker">DVN</div><div class="company">Devon Energy</div></td><td>Energy / E&P</td><td>USA</td><td>SaaS Acct</td><td><span class="tag tag-hold">HOLD</span></td><td>$58B Coterra merger. $7B FCF. Variable + fixed dividend. Inflation hedge. US energy independence theme.</td><td class="risk">WTI oil price; Coterra merger execution; variable dividend compresses if oil falls.</td><td class="catalyst">Coterra merger close Q2 2026; $1B synergy realization.</td></tr>
+<tr class="income"><td><div class="ticker">JD</div><div class="company">JD.com</div></td><td>E-commerce / Logistics</td><td>China</td><td>Main Acct</td><td><span class="tag tag-hold">HOLD</span></td><td>China's direct e-commerce + logistics giant. Owns its own warehouses — more Amazon than Alibaba. Real earnings, aggressive buybacks, 8-10x P/E vs global e-commerce peers. AI logistics investment ongoing. Replaces SE as China digital exposure.</td><td class="risk">China ADR risk; competition from PDD/Alibaba/Douyin; regulatory environment; consumer slowdown.</td><td class="catalyst">China stimulus; earnings growth; AI logistics platform; buyback acceleration program.</td></tr>
+<tr class="income"><td><div class="ticker">REPX</div><div class="company">Riley Exploration Permian</div></td><td>Energy / E&P</td><td>USA</td><td>Main Acct</td><td><span class="tag tag-hold">HOLD</span></td><td>Pure-play Permian Basin operator. Variable + base dividend with direct WTI price leverage. Low-cost production and efficient capital allocation. Domestic energy income with no LatAm political risk.</td><td class="risk">Oil price sensitivity; single-basin concentration; small-cap liquidity premium.</td><td class="catalyst">WTI oil price; production guidance; variable dividend declarations; Permian acreage additions.</td></tr>
+<tr class="income"><td><div class="ticker">CRGY</div><div class="company">Crescent Energy</div></td><td>Energy / E&P</td><td>USA</td><td>Main Acct</td><td><span class="tag tag-hold">HOLD</span></td><td>Diversified US E&P with Eagle Ford core + Rockies assets. Growth-through-acquisition strategy with dividend model. Lower political and currency risk than LatAm energy. Pairs with REPX for domestic E&P income diversification.</td><td class="risk">Acquisition integration risk; oil price sensitivity; leverage from growth-by-acquisition model.</td><td class="catalyst">Eagle Ford production ramp; Rockies asset integration synergies; WTI price; dividend sustainability.</td></tr>
+<tr class="spec"><td><div class="ticker">AKTAF</div><div class="company">Akita Drilling</div></td><td>Oilfield Services</td><td>Canada</td><td>Main Acct</td><td><span class="tag tag-hold">HOLD</span></td><td>Canadian oilfield drilling services operator. Benefits from elevated E&P capex when oil prices are high — drilling activity tracks operator spending cycles. Services angle provides different return profile vs pure E&P. Part of the oil torque satellite basket.</td><td class="risk">OTC liquidity; cyclical with E&P capex budgets; oil price sensitivity through drilling demand; limited analyst coverage.</td><td class="catalyst">WTI oil price; Canadian E&P capex announcements; drilling rig count data.</td></tr>
+<tr class="spec"><td><div class="ticker">GPRK</div><div class="company">GPRK</div></td><td>Energy / Speculative</td><td>International</td><td>Main Acct</td><td><span class="tag tag-hold">HOLD</span></td><td>Speculative upstream energy position in the oil satellite basket. Asymmetric oil torque play sized appropriately for risk. Benefits from elevated WTI environment through FCF expansion at the small-cap level.</td><td class="risk">Speculative; oil price sensitive; small-cap/OTC liquidity; limited analyst coverage.</td><td class="catalyst">WTI oil price; production updates; company-specific news flow.</td></tr>
+<tr class="spec"><td><div class="ticker">CLGY</div><div class="company">CLGY</div></td><td>Energy / Speculative</td><td>International</td><td>Main Acct</td><td><span class="tag tag-hold">HOLD</span></td><td>Small-cap E&P satellite position. Elevated oil amplifies FCF for smaller operators with fixed cost structures. Part of the diversified oil torque basket alongside GPRK and VLERF.</td><td class="risk">Small-cap; direct WTI sensitivity; limited liquidity; execution risk at smaller scale.</td><td class="catalyst">WTI oil price; quarterly production results; operator updates.</td></tr>
+<tr class="spec"><td><div class="ticker">VLERF</div><div class="company">Valueuva</div></td><td>Energy / OTC</td><td>International</td><td>Main Acct</td><td><span class="tag tag-hold">HOLD</span></td><td>OTC-listed Valueuva energy operator. Leveraged exposure to oil price cycle. Part of the speculative oil torque basket — sized small for asymmetric upside in oil bull scenario. International energy diversification.</td><td class="risk">OTC liquidity; international operational risk; direct oil price sensitivity; limited English-language news flow.</td><td class="catalyst">WTI oil price; company announcements; oil sector rotation.</td></tr>
+<tr class="income"><td><div class="ticker">MUFG</div><div class="company">Mitsubishi UFJ</div></td><td>Banking</td><td>Japan</td><td>Main Acct</td><td><span class="tag tag-hold">HOLD</span></td><td>Japan's largest bank. Small position initiated. BOJ rate normalization = structural NIM expansion. Only name in book that benefits DIRECTLY from rising rates. Corporate governance reform driving shareholder returns and buybacks.</td><td class="risk">Yen appreciation vs USD eats ADR returns; slow BOJ normalization pace; Japanese macro headwinds.</td><td class="catalyst">BOJ policy meetings; USD/JPY; quarterly NIM expansion; corporate reform catalyst announcements.</td></tr>
+<tr class="income"><td><div class="ticker">YUMC</div><div class="company">Yum China</div></td><td>Consumer / Food</td><td>China</td><td>Main Acct</td><td><span class="tag tag-hold">HOLD</span></td><td>KFC + Pizza Hut exclusive China operator. Initiated position. 17x P/E vs quality of franchise. China domestic consumption recovery play. Urbanization + middle class growth tailwind. Dividend + aggressive buybacks.</td><td class="risk">China ADR risk; consumer slowdown; elevated oil = consumer squeeze; quick-service dining competition.</td><td class="catalyst">China stimulus; same-store sales growth; new store openings; buyback acceleration.</td></tr>
+<tr class="spec"><td><div class="ticker">ERO</div><div class="company">ERO Copper Corp</div></td><td>Copper Mining</td><td>Canada/Brazil</td><td>Main Acct</td><td><span class="tag tag-hold">HOLD</span></td><td>Pure-play copper producer with Brazilian operations (MCSA complex). Structural copper deficit thesis — EV + grid infrastructure demand cycle. Growing production profile. Cheap on FCF vs copper price implied valuation.</td><td class="risk">Copper price sensitivity; Brazilian operational and political risk; single-commodity concentration.</td><td class="catalyst">Copper price; MCSA complex production ramp; exploration results; EV infrastructure spending cycle.</td></tr>
+</table>
+
+<div class="section-hdr">── 💰 INCOME VEHICLES ──</div>
+<table>
+<tr><th style="width:210px">Ticker / Company</th><th style="width:100px">Type</th><th style="width:80px">~Yield</th><th style="width:90px">Action</th><th>Thesis</th><th style="width:200px">Rate Risk / Notes</th></tr>
+<tr class="trim"><td><div class="ticker">PDI</div><div class="company">PIMCO Dynamic Income</div></td><td>CEF / Bond</td><td>~14%</td><td><span class="tag tag-trim">TRIM</span></td><td>Leveraged closed-end bond fund. PIMCO credit expertise. High income.</td><td class="risk">⚠️ RATE SENSITIVE: Leveraged fixed-rate = NAV compression on rate rises. Swap for ARCC if rates rise. See Income tab.</td></tr>
+<tr class="income"><td><div class="ticker">CAIE</div><div class="company">Calamos Autocallable</div></td><td>Structured Income</td><td>~17-18%</td><td><span class="tag tag-hold">HOLD</span></td><td>~17-18% autocallable yield. Works in low-vol, flat/up markets. Cap on upside, barrier floor on downside.</td><td class="risk">⚠️ Autocall mechanic breaks in high-vol bear markets. Know your barrier levels. Trim 50% if rates rise sharply.</td></tr>
+<tr class="income"><td><div class="ticker">CAIQ</div><div class="company">Calamos Autocallable Q</div></td><td>Structured Income</td><td>~17-18%</td><td><span class="tag tag-hold">HOLD</span></td><td>Same structure as CAIE, launched Nov 2025. Newer vintage of same income mechanic.</td><td class="risk">⚠️ Same as CAIE. Vol spike or sharp equity drawdown tests barrier protection.</td></tr>
+<tr class="core"><td><div class="ticker">BAM</div><div class="company">Brookfield Asset Mgmt</div></td><td>Alt Asset Manager</td><td>~3%</td><td><span class="tag tag-hold">HOLD</span></td><td>World-class alt asset manager. Data center buildout angle through infrastructure fund. Best capital allocators globally.</td><td class="risk">Credit market seizure compresses marks. Premier alt manager; strong data center infrastructure angle.</td></tr>
+<tr class="income"><td><div class="ticker">ARCC</div><div class="company">Ares Capital (BDC)</div></td><td>BDC / Floating Rate</td><td>~9-10%</td><td><span class="tag tag-hold">HOLD</span></td><td>Best-in-class BDC. Floating-rate senior secured loans to middle-market companies. Income RISES with SOFR rates. Bought at Friday close ~$18.95. Replaces NLY income. Thrives in rising rate environment where PDI struggles.</td><td class="risk">Middle market credit quality in EM/credit stress; OBDC sector sentiment overhang. Add more at $17–17.50 if sector takes another leg down.</td></tr>
+<tr class="income"><td><div class="ticker">ET</div><div class="company">Energy Transfer LP</div></td><td>Midstream MLP</td><td>~8%</td><td><span class="tag tag-hold">HOLD</span></td><td>Large US midstream MLP owned for yield. Pipelines, storage, and processing assets across the US. ~8% distribution. Fee-based cash flows with volume-driven upside in elevated oil/gas throughput environments. K-1 required.</td><td class="risk">MLP K-1 tax complexity; distribution sustainability; regulatory pipeline risk; balance sheet leverage vs EPD peers.</td></tr>
+<tr class="income"><td><div class="ticker">EBF</div><div class="company">Ennis</div></td><td>Dividend / B2B Print</td><td>~3-4%</td><td><span class="tag tag-hold">HOLD</span></td><td>Business forms &amp; specialty printing niche cash cow. Consistent, well-covered dividend. Real free cash flow generator with a defensible niche. Low volatility income position.</td><td class="risk">Secular decline in print is the long-term headwind, not rates. Monitor dividend sustainability and revenue trajectory. No rate sensitivity to speak of.</td></tr>
+<tr class="income"><td><div class="ticker">NKE</div><div class="company">Nike</div></td><td>Dividend / Consumer</td><td>~2%</td><td><span class="tag tag-hold">HOLD</span></td><td>Quality global brand in a rough patch under new CEO Elliott Hill. Dividend maintained and well-covered. Owned for turnaround income + capital recovery — DTC pivot and margin recovery underway.</td><td class="risk">Consumer slowdown amplifies brand weakness risk. China exposure adds EM uncertainty. Recovery contingent entirely on Elliott Hill execution speed.</td></tr>
+<tr class="income"><td><div class="ticker">HTO</div><div class="company">H2O America</div></td><td>Infrastructure / Income</td><td>Growth focus</td><td><span class="tag tag-hold">HOLD</span></td><td>Water infrastructure play with structural water scarcity tailwind. Government and utility contract-driven revenue. Infrastructure bill beneficiary with long-term demographic demand support.</td><td class="risk">Early-stage; limited track record. Infrastructure names rate-sensitive on valuation basis. Contract award timeline is the key execution risk.</td></tr>
+</table>
+
+<div class="section-hdr">── ⚡ SPECULATIVE / TECHNICAL SETUPS ──</div>
+<table>
+<tr><th style="width:210px">Ticker / Company</th><th style="width:100px">Country</th><th style="width:90px">Sector</th><th style="width:90px">Action</th><th>Thesis</th><th style="width:200px">Key Risks</th><th style="width:160px">Catalyst</th></tr>
+<tr class="spec"><td><div class="ticker">LWLG</div><div class="company">Lightwave Logic</div></td><td>USA</td><td>Photonics</td><td><span class="tag tag-hold">HOLD</span></td><td>Electro-optic polymer platform for next-gen data center optical interconnects. Fortune 500 partnerships forming. Technical setup.</td><td class="risk">Pre-revenue; commercialization uncertain.</td><td class="catalyst">Fortune 500 partnership announcements; New C-Suite Hires; CTO Ex-Nokia (NOK); VP Engineering Ex-Coherent (COHR); licensing deals; first revenue.</td></tr>
+<tr class="spec"><td><div class="ticker">POET</div><div class="company">POET Technologies</div></td><td>Canada</td><td>Photonics / Optical</td><td><span class="tag tag-hold">HOLD</span></td><td>Optical Interposer platform — wafer-scale integration of electronic and photonic devices on a single chip. Dramatically reduces cost and power consumption of optical transceivers for AI data center interconnects. Recent optical industry award validates commercial-stage technology credibility. Bullish signal: investment firm disclosed 10%+ ownership stake — institutional accumulation at this cap suggests conviction on the data center photonics buildout thesis. Complements LWLG in the optical interconnect basket — two distinct approaches to the same structural data center bandwidth problem.</td><td class="risk">Pre-revenue commercial scale; OTC/TSX-V liquidity; optical transceiver market highly competitive (Coherent, II-VI, Lumentum); technology adoption timeline risk; Canadian small-cap execution risk.</td><td class="catalyst">⚡ 10% institutional holder disclosure (sentiment inflection); optical industry award recognition; transceiver design win announcements; data center hyperscaler partnership; commercial volume orders from optical module manufacturers.</td></tr>
+<tr class="spec"><td><div class="ticker">ALMU</div><div class="company">Aeluma</div></td><td>USA</td><td>Photonics / Semiconductor</td><td><span class="tag tag-hold">HOLD</span></td><td>Compound semiconductor nanomaterials integrated with mass-market silicon manufacturing — the core insight being volume scaling at low cost without sacrificing performance. Sensors and optical communications applications directly aligned with AI data center interconnect demand. State-of-the-art cleanroom in Goleta, CA = real manufacturing capability, not just IP. Nasdaq-listed, making it the most liquid name in the optical basket. Completes a three-name optical thesis alongside LWLG (electro-optic polymers) and POET (optical interposer) — three distinct material and process approaches to the same structural data center bandwidth problem.</td><td class="risk">Pre-revenue / early commercial stage; compound semiconductor manufacturing is capital intensive; silicon photonics incumbents (Intel, Coherent) have deep pockets; technology adoption timeline risk; R&D spend runway.</td><td class="catalyst">⚡ Sensor or communications design win announcements; data center optical transceiver customer adoption; cleanroom capacity expansion milestones; partnership with hyperscaler or Tier-1 optical module manufacturer; revenue inflection.</td></tr>
+<tr class="spec"><td><div class="ticker">IBIT</div><div class="company">iShares Bitcoin Trust</div></td><td>USA</td><td>Digital Assets / ETF</td><td><span class="tag tag-hold">HOLD</span></td><td>BlackRock's Bitcoin spot ETF — largest and most liquid in the world. Institutional access to Bitcoin. Largest new ETF inflows in history. Bitcoin as digital gold + inflation hedge. BlackRock brand provides regulatory legitimacy and institutional confidence.</td><td class="risk">Bitcoin volatility; regulatory risk; crypto market cycles; correlation to risk-off events; no income.</td><td class="catalyst">Bitcoin price; institutional allocation flows; regulatory clarity; halving cycle dynamics; ETF AUM growth milestones.</td></tr>
+<tr class="spec"><td><div class="ticker">HHLKF</div><div class="company">HHLKF (OTC)</div></td><td>International</td><td>OTC / Speculative</td><td><span class="tag tag-hold">HOLD</span></td><td>International OTC speculative position. Technical chart setup entry. Sized for asymmetric outcome potential. Part of international diversification basket.</td><td class="risk">OTC liquidity; limited near-term trading information; speculative position — keep size small.</td><td class="catalyst">Louis "Lobo" James #1 Jr. Conviction play; new discoveries at La Verde expected to extend mine life and boost financial returns. Strategic water infrastructure and strong market conditions support rapid development, with key milestones and partnerships anticipated this year; Strong Copper Sector catalyst.</td></tr>
+<tr class="spec"><td><div class="ticker">IPX</div><div class="company">IperionX</div></td><td>USA</td><td>Critical Materials</td><td><span class="tag tag-hold">HOLD</span></td><td>Domestic titanium from recycled scrap via proprietary HAMR process. ~$160M US gov contracts. Virginia plant commercial. Defense/aerospace tailwind.</td><td class="risk">Pre-profit; execution risk; titanium price volatility.</td><td class="catalyst">DoD contract expansions; commercial production ramp.</td></tr>
+<tr class="spec"><td><div class="ticker">ISOU</div><div class="company">IsoEnergy</div></td><td>Canada</td><td>Uranium</td><td><span class="tag tag-hold">HOLD</span></td><td>Athabasca Basin uranium developer. Listed NYSE American 2025. Serious operator with tier-1 assets. Uranium supply deficit structural.</td><td class="risk">Pre-production; uranium price sensitivity; political risk.</td><td class="catalyst">Resource estimate updates; permitting milestones; uranium spot.</td></tr>
+<tr class="spec"><td><div class="ticker">PHR</div><div class="company">Phreesia</div></td><td>USA</td><td>Healthcare SaaS</td><td><span class="tag tag-hold">HOLD</span></td><td>Patient intake & engagement platform. Profitability inflection happening NOW. Down 94% from peak = deep value if execution holds.</td><td class="risk">Still burning cash; competitive healthcare IT; slow enterprise sales cycles.</td><td class="catalyst">FCF positive milestone; revenue per customer expansion.</td></tr>
+<tr class="spec"><td><div class="ticker">PENG</div><div class="company">Penguin Solutions</div></td><td>USA</td><td>AI Infrastructure</td><td><span class="tag tag-hold">HOLD</span></td><td>GPU infrastructure and memory solutions at 9.5x P/E. Cheapest AI infrastructure play by P/E. Manages HPC clusters for enterprises.</td><td class="risk">Commodity GPU market; customer concentration.</td><td class="catalyst">GPU cluster contract wins; AI infrastructure partnerships.</td></tr>
+<tr class="spec"><td><div class="ticker">SLP</div><div class="company">Simulations Plus</div></td><td>USA</td><td>Pharma Software</td><td><span class="tag tag-hold">HOLD</span></td><td>P/FCF 3.15x. Zero debt. Pharma modeling niche software. FDA uses their software — embedded in drug approval workflows.</td><td class="risk">Tiny market cap; niche limits growth ceiling; revenue concentration.</td><td class="catalyst">Pharma pipeline activity; new software module launches.</td></tr>
+<tr class="spec"><td><div class="ticker">KDK</div><div class="company">Kodiak AI</div></td><td>USA</td><td>Autonomous Trucks</td><td><span class="tag tag-hold">HOLD</span></td><td>Bosch partnership for driverless trucking. H2 2026 commercial driverless launch target. Binary catalyst approaching.</td><td class="risk">Pre-revenue; driverless trucking regulation uncertainty; capital intensive.</td><td class="catalyst">⚡ H2 2026 driverless launch; Bosch integration milestones.</td></tr>
+<tr class="spec"><td><div class="ticker">WRD</div><div class="company">WeRide</div></td><td>China</td><td>Autonomous Vehicles</td><td><span class="tag tag-hold">HOLD</span></td><td>UAE & Swiss permits. 300+ robotaxis deployed. $15.41 analyst target (107% upside). International regulatory progress ahead of US peers.</td><td class="risk">China geopolitical risk; regulatory delays; cash burn.</td><td class="catalyst">⚡ UAE fully autonomous ops; Swiss launch; additional country permits.</td></tr>
+<tr class="spec"><td><div class="ticker">BEAM</div><div class="company">Beam Therapeutics</div></td><td>USA</td><td>Gene Editing</td><td><span class="tag tag-hold">HOLD</span></td><td>Base editing platform — single-letter DNA correction without double-strand breaks. More precise than CRISPR with lower off-target risk profile. Multiple programs in hematology (sickle cell, beta-thal) and oncology. Complements NTLA and PRME in gene editing basket — three distinct editing modalities under one thesis.</td><td class="risk">Pre-revenue clinical stage; binary trial outcomes; cash burn rate; competitive pressure from CRISPR Therapeutics and Intellia; licensing dispute overhang with Broad Institute.</td><td class="catalyst">⚡ BEACON-101 clinical data (hematology); IND filings; partnership or licensing deal with large pharma; FDA Breakthrough designation milestones.</td></tr>
+<tr class="spec"><td><div class="ticker">NTLA</div><div class="company">Intellia Therapeutics</div></td><td>USA</td><td>Gene Editing</td><td><span class="tag tag-hold">HOLD</span></td><td>In vivo CRISPR gene editing. FDA lifted MAGNITUDE-2 hold Jan 2026. Real editing capability.</td><td class="risk">Patient safety risk; FDA hold could return; binary clinical outcomes.</td><td class="catalyst">MAGNITUDE-2 trial data; FDA review milestones.</td></tr>
+<tr class="spec"><td><div class="ticker">PRME</div><div class="company">Prime Medicine</div></td><td>USA</td><td>Gene Editing</td><td><span class="tag tag-hold">HOLD</span></td><td>Prime Editing platform — more precise than CRISPR with fewer off-target effects. Multiple programs including sickle cell disease. Backed by David Liu, inventor of prime editing. Complements NTLA in gene editing basket.</td><td class="risk">Pre-clinical/early clinical; cash burn; competitive gene editing landscape; binary clinical outcomes.</td><td class="catalyst">IND filings; early clinical data; partnership or licensing deals with pharma majors.</td></tr>
+<tr class="spec"><td><div class="ticker">SANA</div><div class="company">Sana Biotech</div></td><td>USA</td><td>Cell Therapy</td><td><span class="tag tag-watch">WATCH</span></td><td>Allogeneic cell therapy. Type 1 diabetes potential. SC291 CAR-T data anticipated.</td><td class="risk">Tight cash runway; clinical failure risk; competitive market.</td><td class="catalyst">SC291 clinical data; financing announcements.</td></tr>
+<tr class="spec"><td><div class="ticker">SNTI</div><div class="company">Senti Biosciences</div></td><td>USA</td><td>Gene Therapy</td><td><span class="tag tag-hold">HOLD</span></td><td>CAR-NK gene therapy for AML. FDA RMAT designation for SENTI-202. Technical chart setup + binary clinical catalyst.</td><td class="risk">Tiny market cap; clinical binary outcome; cash burn.</td><td class="catalyst">SENTI-202 clinical data; RMAT pathway milestones.</td></tr>
+<tr class="spec"><td><div class="ticker">IESVF</div><div class="company">Invinity Energy Systems</div></td><td>UK</td><td>Energy Storage</td><td><span class="tag tag-watch">WATCH</span></td><td>Vanadium flow battery manufacturer. Long-duration storage technology. Technical chart setup.</td><td class="risk">Cash burn; pre-scale; thinly traded OTC.</td><td class="catalyst">Commercial deployments; utility contracts.</td></tr>
+<tr class="spec"><td><div class="ticker">NGPHF</div><div class="company">Northern Graphite</div></td><td>Canada</td><td>Graphite / Mining</td><td><span class="tag tag-watch">WATCH</span></td><td>Junior graphite explorer. Technical setup. Battery materials exposure.</td><td class="risk">Pre-revenue; no cash flow; exploration stage.</td><td class="catalyst">Resource estimates; offtake agreements.</td></tr>
+<tr class="spec"><td><div class="ticker">DFMTF</div><div class="company">Defense Metals</div></td><td>Canada</td><td>Rare Earths</td><td><span class="tag tag-watch">WATCH</span></td><td>Canadian rare earth explorer. Technical chart setup. Critical minerals exposure.</td><td class="risk">Pre-revenue; exploration stage; no gov contracts.</td><td class="catalyst">Resource estimate; permit milestones.</td></tr>
+<tr class="spec"><td><div class="ticker">LC</div><div class="company">LendingClub</div></td><td>USA</td><td>Fintech / Banking</td><td><span class="tag tag-hold">HOLD</span></td><td>Fintech bank. Consumer credit platform. Technical setup was the entry.</td><td class="risk">Consumer credit quality; rate sensitivity; fintech competitive pressure.</td><td class="catalyst">Loan volume growth; NIM; credit loss rates.</td></tr>
+<tr class="spec"><td><div class="ticker">SMP</div><div class="company">Standard Motor Parts</div></td><td>USA</td><td>Auto Parts</td><td><span class="tag tag-hold">HOLD</span></td><td>ICE auto parts. Older vehicle fleet staying on road longer = tailwind. Dividend payer. EV transition is long-term headwind.</td><td class="risk">EV transition sunset risk; margin pressure; auto production cycles.</td><td class="catalyst">Repair volumes; fleet age data; EV penetration rate.</td></tr>
+<tr class="spec"><td><div class="ticker">TIGR</div><div class="company">Tiger Brokers</div></td><td>Singapore</td><td>Fintech Brokerage</td><td><span class="tag tag-hold">HOLD</span></td><td>Singapore-based brokerage serving Chinese diaspora. Growing into international retail investor market.</td><td class="risk">Chinese regulatory risk; competition from Futu; margin compression.</td><td class="catalyst">Account growth; AUM expansion; new market licenses.</td></tr>
+<tr class="spec"><td><div class="ticker">U</div><div class="company">Unity Software</div></td><td>USA</td><td>Game Engine / Software</td><td><span class="tag tag-hold">HOLD</span></td><td>World's most widely-used game engine. Turnaround underway under new CEO Matthew Bromberg. Runtime Fee controversy fully resolved. AI-powered game dev tools. Deep developer ecosystem moat across mobile/PC/console/industrial 3D.</td><td class="risk">Developer trust rebuilding takes time; competition from Unreal/Epic; path to profitability uncertain; mobile gaming spend cycle.</td><td class="catalyst">Revenue stabilization; new CEO strategy execution; AI Unity tools; mobile gaming recovery; industrial 3D expansion.</td></tr>
+<tr class="spec"><td><div class="ticker">IMPP</div><div class="company">Imperial Petroleum</div></td><td>Greece</td><td>Tankers / Shipping</td><td><span class="tag tag-hold">HOLD</span></td><td>Micro-cap Greek tanker operator. Fleet of product and crude tankers. High leverage to tanker rate cycles. Pairs with ECO and HAFN for broader shipping sector exposure. Elevated oil environment = elevated tanker demand and freight rates.</td><td class="risk">Tiny market cap; tanker rate cyclicality; thin liquidity; geopolitical route changes; management complexity.</td><td class="catalyst">Tanker rate spikes; fleet expansion; dividend announcements; elevated WTI price demand cycle.</td></tr>
+<tr class="spec"><td><div class="ticker">WETH</div><div class="company">WeTouch Technology</div></td><td>China</td><td>Industrial Displays</td><td><span class="tag tag-hold">HOLD</span></td><td>Chinese industrial touchscreen and display technology manufacturer. Automation and manufacturing applications. China industrial capex + factory automation theme. Technical chart setup entry.</td><td class="risk">Chinese company geopolitical risk; small market cap; manufacturing cycle sensitivity; thin OTC liquidity.</td><td class="catalyst">Revenue growth; automation contract wins; China industrial capex acceleration; chart setup milestones.</td></tr>
+</table>
+</div>
+<!-- ══════════════════════════════════ TAB 2: INTERNATIONAL ══════════ -->
+<div id="tab-intl" class="tab-content">
+<table>
+<tr>
+  <th style="width:70px">Ticker</th><th style="width:140px">Company</th><th style="width:100px">Country</th>
+  <th style="width:80px">~Yield</th><th style="width:60px">~P/E</th><th style="width:85px">Status</th>
+  <th class="bull-hdr" style="width:200px">🟢 Bull / Rates Fall</th>
+  <th class="bear-hdr" style="width:200px">🔴 Bear / Rates Rise</th>
+  <th class="oil-hdr" style="width:160px">🛢️ Oil Elevated</th>
+  <th class="em-hdr" style="width:160px">⚠️ EM Stress</th>
+  <th style="width:100px">Action Tag</th>
+</tr>
+
+<tr><td colspan="11" style="background:#1F3864;color:#fff;font-weight:bold;padding:6px 10px;">── 🟢 CURRENTLY OWN ──</td></tr>
+<tr class="income"><td><div class="ticker">EQNR</div></td><td>Equinor</td><td>Norway</td><td>~7%</td><td>11x</td><td>OWN</td><td class="bull">HOLD / ADD — rate cuts weaken USD, NOK strengthens, yield looks even better</td><td class="bear">HOLD — oil hedge outweighs rate pain; state-backed income</td><td class="oil">ADD — direct oil price beneficiary; dividend rises with FCF</td><td class="em">HOLD — Norway = developed market, low EM risk</td><td><span class="tag tag-hold">HOLD</span></td></tr>
+<tr class="income"><td><div class="ticker">MRNFF</div></td><td>Meren Energy</td><td>Nigeria/Namibia</td><td>~9.7%</td><td>14x</td><td>OWN</td><td class="bull">ADD — Venus FID timing + rate cuts = double catalyst</td><td class="bear">HOLD — Venus binary catalyst independent of rate environment</td><td class="oil">ADD — deepwater Nigeria FCF surges; Venus economics improve</td><td class="em">WATCH — Nigeria operational risk in EM stress</td><td><span class="tag tag-hold">HOLD</span></td></tr>
+<tr class="income"><td><div class="ticker">IBN</div></td><td>ICICI Bank</td><td>India</td><td>~0.8%</td><td>19x</td><td>OWN</td><td class="bull">ADD — Indian rate cuts accelerate loan growth</td><td class="bear">HOLD — domestic Indian funding = insulated vs USD-sensitive EM banks</td><td class="oil">NEUTRAL — India is oil importer; elevated oil = headwind for macro</td><td class="em">HOLD — India less correlated to global EM stress than LatAm/Africa</td><td><span class="tag tag-hold">HOLD</span></td></tr>
+<tr class="income"><td><div class="ticker">TME</div></td><td>Tencent Music</td><td>China</td><td>~2%</td><td>18x</td><td>OWN</td><td class="bull">HOLD / ADD — growth multiple expands on rate cuts</td><td class="bear">TRIM — growth multiple compresses; China ADR risk amplified</td><td class="oil">NEUTRAL — China oil importer; elevated oil = macro headwind</td><td class="em">WATCH — China ADR delisting risk elevated in EM stress</td><td><span class="tag tag-hold">HOLD</span></td></tr>
+<tr class="income"><td><div class="ticker">PHI</div></td><td>PLDT</td><td>Philippines</td><td>~6%</td><td>12x</td><td>OWN</td><td class="bull">HOLD / ADD — dividend + infrastructure moat; peso stable with cuts</td><td class="bear">HOLD — telecom = stable cash flows regardless of rates</td><td class="oil">NEUTRAL — Philippines oil importer; headwind at margin</td><td class="em">HOLD — telecom defensive; Philippines fundamentals strong</td><td><span class="tag tag-hold">HOLD</span></td></tr>
+<tr class="income"><td><div class="ticker">ONON</div></td><td>On Holding</td><td>Switzerland</td><td>0%</td><td>40x</td><td>OWN</td><td class="bull">HOLD / ADD — rate cuts support consumer + growth multiple</td><td class="bear">TRIM — high-multiple consumer = rate pain; CHF strength is partial hedge</td><td class="oil">NEUTRAL — Swiss company; some USD weakness hedge</td><td class="em">HOLD — premium brand resilient; Switzerland = safe haven</td><td><span class="tag tag-hold">HOLD</span></td></tr>
+<tr class="income"><td><div class="ticker">ECO</div></td><td>Okeanis Eco Tankers</td><td>Greece</td><td>~8-12%</td><td>8x</td><td>OWN</td><td class="bull">ADD — rate cuts boost shipping demand + dividend attractive</td><td class="bear">HOLD — tanker rates tied to oil volume, not directly to rates</td><td class="oil">ADD — elevated oil = elevated crude tanker demand; dividend surges</td><td class="em">WATCH — geopolitical route disruptions amplify in EM stress</td><td><span class="tag tag-hold">HOLD</span></td></tr>
+<tr class="income"><td><div class="ticker">HAFN</div></td><td>Hafnia Limited</td><td>Denmark/Singapore</td><td>~8-10%</td><td>7x</td><td>OWN</td><td class="bull">HOLD / ADD — rate cuts + global trade volume = product tanker demand steady</td><td class="bear">HOLD — tanker rates tied to oil throughput not rate direction; product demand more stable than crude</td><td class="oil">ADD — elevated refining margins = elevated product tanker demand; complements ECO crude exposure</td><td class="em">WATCH — EM trade route disruptions; geopolitical risk to shipping lanes</td><td><span class="tag tag-hold">HOLD</span></td></tr>
+<tr class="trim"><td><div class="ticker">PDI</div></td><td>PIMCO Dynamic Income</td><td>USA (global bonds)</td><td>~14%</td><td>N/A</td><td>OWN</td><td class="bull">HOLD / ADD — rate cuts lift bond NAV; leverage amplifies gains</td><td class="bear">EXIT → ARCC — leveraged fixed-rate CEF = worst structure for rising rates</td><td class="oil">NEUTRAL — bonds and oil relatively uncorrelated</td><td class="em">TRIM — credit spread widening compresses leveraged bond fund NAV</td><td><span class="tag tag-trim">TRIM</span></td></tr>
+<tr class="income"><td><div class="ticker">ARCC</div></td><td>Ares Capital (BDC)</td><td>USA</td><td>~9-10%</td><td>N/A</td><td>OWN</td><td class="bull">HOLD — floating rate income stable; spread income remains attractive</td><td class="bear">ADD — ARCC income RISES with rates. PDI replacement confirmed. Core rate hedge.</td><td class="oil">NEUTRAL — middle market lending uncorrelated to commodities</td><td class="em">HOLD — best-in-class BDC; bought at ~$18.95. Add more at $17–17.50 if sector weakness continues.</td><td><span class="tag tag-hold">HOLD</span></td></tr>
+<tr class="income"><td><div class="ticker">JD</div></td><td>JD.com</td><td>China</td><td>~1%</td><td>10x</td><td>OWN</td><td class="bull">ADD — China stimulus + rate cuts = consumer re-rating; buybacks accelerate</td><td class="bear">HOLD — real earnings + cheap valuation provide floor; buybacks continue</td><td class="oil">NEUTRAL — China oil importer; logistics costs partially offset demand headwind</td><td class="em">WATCH — China ADR delisting risk elevated in EM stress; monitor geopolitical situation</td><td><span class="tag tag-hold">HOLD</span></td></tr>
+<tr class="income"><td><div class="ticker">CRGY</div></td><td>Crescent Energy</td><td>USA</td><td>~4-5%</td><td>9x</td><td>OWN</td><td class="bull">HOLD — Eagle Ford + Rockies cash flows; dividend maintained</td><td class="bear">TRIM if WTI falls — diversified E&P more resilient than pure-plays</td><td class="oil">ADD — Eagle Ford and Rockies production benefits from elevated WTI</td><td class="em">HOLD — US domestic E&P; zero LatAm political risk vs prior EC position</td><td><span class="tag tag-hold">HOLD</span></td></tr>
+<tr class="income"><td><div class="ticker">MUFG</div></td><td>Mitsubishi UFJ</td><td>Japan</td><td>~3-4%</td><td>10x</td><td>OWN</td><td class="bull">HOLD — BOJ normalization tailwind; dividend growing; corporate reform ongoing</td><td class="bear">ADD — rising Japanese rates directly boost MUFG NIM. Best rate-rise name in book.</td><td class="oil">NEUTRAL — Japan oil importer; domestic NIM expansion story independent of oil</td><td class="em">HOLD — Japanese banks = safe haven vs EM banks in stress; BOJ independent of Fed</td><td><span class="tag tag-hold">HOLD</span></td></tr>
+<tr class="income"><td><div class="ticker">YUMC</div></td><td>Yum China</td><td>China</td><td>~1.5%</td><td>17x</td><td>OWN</td><td class="bull">HOLD / ADD — China stimulus + rate cuts boost consumer spending; KFC/Pizza Hut dominant</td><td class="bear">HOLD — consumer defensive-ish; QSR demand resilient even in downturns</td><td class="oil">NEUTRAL — China oil importer; elevated oil = consumer squeeze headwind</td><td class="em">WATCH — China geopolitical risk; ADR structure risk</td><td><span class="tag tag-hold">HOLD</span></td></tr>
+<tr class="spec"><td><div class="ticker">ERO</div></td><td>ERO Copper Corp</td><td>Canada/Brazil</td><td>~1-2%</td><td>12x</td><td>OWN</td><td class="bull">ADD — rate cuts + EM recovery = copper demand + Brazil risk-on catalyst</td><td class="bear">HOLD — copper structural deficit thesis long-term; production growth independent of rates</td><td class="oil">ADD — infrastructure + EV demand drives copper; elevated macro = copper demand cycle</td><td class="em">WATCH — Brazil operational risk; copper price = EM sentiment indicator</td><td><span class="tag tag-hold">HOLD</span></td></tr>
+<tr class="spec"><td><div class="ticker">IMPP</div></td><td>Imperial Petroleum</td><td>Greece</td><td>Var.</td><td>N/A</td><td>OWN</td><td class="bull">HOLD — tanker market speculative; size accordingly</td><td class="bear">HOLD — tanker rates tied to oil volume, not directly to rate direction</td><td class="oil">ADD — elevated oil = elevated crude tanker demand; pairs with ECO in shipping basket</td><td class="em">WATCH — micro-cap; geopolitical route disruptions; thin liquidity in stress</td><td><span class="tag tag-hold">HOLD</span></td></tr>
+
+<tr><td colspan="11" style="background:#2E75B6;color:#fff;font-weight:bold;padding:6px 10px;">── 🔵 PENDING ADD — Wait for Entry ──</td></tr>
+<tr class="spec"><td><div class="ticker">VALE</div></td><td>Vale S.A.</td><td>Brazil</td><td>~7%</td><td>8x fwd</td><td>PENDING</td><td class="bull">ADD — commodity cycle + EM rate cuts = double tailwind; FCF yield 12-14%</td><td class="bear">ADD — real assets / hard commodities outperform in stagflation</td><td class="oil">ADD — copper & iron ore demand from infrastructure; FCF surges</td><td class="em">WATCH — Brazil political risk; iron ore = China demand risk</td><td><span class="tag tag-dip">WAIT FOR DIP</span></td></tr>
+<tr class="spec"><td><div class="ticker">RIO</div></td><td>Rio Tinto</td><td>Australia/UK</td><td>~4.5%</td><td>11x fwd</td><td>PENDING</td><td class="bull">HOLD / ADD — commodity demand + balance sheet quality</td><td class="bear">ADD — real assets in stagflation; stronger balance sheet than VALE</td><td class="oil">ADD — copper & aluminum from grid/EV; Simandou ramp</td><td class="em">HOLD — global mining diversification; better B/S than VALE in stress</td><td><span class="tag tag-dip">WAIT FOR DIP</span></td></tr>
+<tr class="spec"><td><div class="ticker">ITUB</div></td><td>Itaú Unibanco</td><td>Brazil</td><td>~7-8%</td><td>10-13x</td><td>PENDING</td><td class="bull">ADD — Brazil rate cuts accelerate credit growth; ROE already 21%+</td><td class="bear">WAIT — currently at 13x, analyst targets below current price; wait for re-entry</td><td class="oil">ADD — Brazil commodity economy benefits from elevated oil/iron ore cycle</td><td class="em">HOLD — Brazil largest bank; Itaú survived every Brazil macro crisis</td><td><span class="tag tag-dip">WAIT FOR DIP</span></td></tr>
+
+<tr><td colspan="11" style="background:#404040;color:#fff;font-weight:bold;padding:6px 10px;">── ⚪ WATCH LIST / RESEARCH CANDIDATES ──</td></tr>
+<tr class="grey-row"><td><div class="ticker">MAIN</div></td><td>Main Street Capital</td><td>USA</td><td>~7-8%</td><td>N/A</td><td>WATCH</td><td class="bull">HOLD — monthly income consistent; internally managed</td><td class="bear">ADD — monthly float-rate income rises with rates; best-in-class BDC</td><td class="oil">NEUTRAL — middle market lending; oil services exposure minor</td><td class="em">HOLD — highest quality BDC; internally managed = better alignment</td><td><span class="tag tag-watch">WATCH</span></td></tr>
+<tr class="grey-row"><td><div class="ticker">SRGH.Y</div></td><td>Shoprite Holdings</td><td>Africa (14 countries)</td><td>~2-3%</td><td>18x</td><td>WATCH</td><td class="bull">ADD — African consumer staples + demographic mega-trend</td><td class="bear">HOLD — grocery = defensive; people eat regardless of rates</td><td class="oil">NEUTRAL — commodity-exporting Africa benefits; Shoprite captures consumer spend</td><td class="em">HOLD — grocery moat across 14 nations is very defensive</td><td><span class="tag tag-watch">WATCH</span></td></tr>
+<tr class="grey-row"><td><div class="ticker">INSW</div></td><td>International Seaways</td><td>USA/International</td><td>~5-7%</td><td>6x</td><td>WATCH</td><td class="bull">HOLD — crude tanker demand supported; larger fleet = more stable than micro-caps</td><td class="bear">HOLD — tanker rates tied to oil volume not rate direction; higher quality structure than IMPP</td><td class="oil">ADD — elevated crude = elevated tanker demand; potential upgrade from ECO position</td><td class="em">WATCH — potential quality upgrade in tanker basket; ECO swap candidate</td><td><span class="tag tag-watch">⚡ ECO SWAP?</span></td></tr>
+</table>
+</div>
+<!-- ══════════════════════════════════ TAB 3: OIL EXPOSURE ════════════ -->
+<div id="tab-oil" class="tab-content">
+<div style="margin-bottom:14px;padding:10px 14px;background:#fff3e0;border-left:4px solid #e65100;font-size:12px;border-radius:2px;">
+  <strong>🛢️ Oil Exposure Map</strong> — Full portfolio oil footprint by tier. Use to assess overlap, concentration risk, and scenario positioning across the entire energy complex.
+</div>
+<table>
+<tr>
+  <th style="width:130px">Ticker / Company</th><th style="width:140px">Tier / Weight</th>
+  <th style="width:120px">Type</th><th>Oil Angle</th>
+  <th style="width:190px">Key Risk</th><th style="width:90px">Action</th>
+</tr>
+<tr><td colspan="6" style="background:#1F3864;color:#fff;font-weight:bold;padding:6px 10px;">── 🔴 OVERWEIGHT CORE — Primary Oil Exposure ──</td></tr>
+<tr class="core"><td><div class="ticker">EQNR</div><div class="company">Equinor</div></td><td>Overweight Core</td><td>Integrated E&P</td><td>Norwegian state oil giant. North Sea + Brazil + US. ~7% dividend backed by sovereign oil cash flows. Direct Brent/WTI beneficiary with NOK currency diversification. Lowest-risk oil core — state-backed income with full cycle coverage.</td><td class="risk">Oil price decline; Norwegian tax regime; energy transition pressure on multiple.</td><td><span class="tag tag-hold">HOLD / ADD</span></td></tr>
+<tr class="core"><td><div class="ticker">DVN</div><div class="company">Devon Energy</div></td><td>Overweight Core</td><td>US E&P</td><td>Post-Coterra merger mega-E&P with $7B FCF. Variable + fixed dividend model. Pure WTI play with best-in-class capital return framework. Core domestic oil position — no EM risk, no currency risk.</td><td class="risk">WTI oil price; Coterra integration execution; variable dividend compresses below WTI $60.</td><td><span class="tag tag-hold">HOLD / ADD</span></td></tr>
+<tr><td colspan="6" style="background:#1F3864;color:#fff;font-weight:bold;padding:6px 10px;">── 🟡 EQUAL WEIGHT TORQUE — Direct Oil Leverage ──</td></tr>
+<tr class="income"><td><div class="ticker">REPX</div><div class="company">Riley Exploration Permian</div></td><td>Equal Weight Torque</td><td>Permian E&P</td><td>Pure-play Permian Basin. Variable dividend directly tied to WTI price. Low-cost production = high margins in elevated oil. Domestic — zero LatAm/EM risk. Pure WTI torque with income component.</td><td class="risk">Single-basin concentration; variable dividend compresses sharply below WTI $60; small-cap liquidity.</td><td><span class="tag tag-hold">HOLD</span></td></tr>
+<tr class="income"><td><div class="ticker">MRNFF</div><div class="company">Meren Energy</div></td><td>Equal Weight Torque</td><td>Deepwater E&P</td><td>African deepwater Nigeria + Venus light oil discovery (Namibia/TotalEnergies JV). Binary Venus FID catalyst H1 2026. Elevated oil improves deepwater project economics directly. ~10% FCF yield. Deep value vs peers.</td><td class="risk">Binary Venus FID; Nigeria operational risk; oil floor needed for deepwater economics; OTC liquidity.</td><td><span class="tag tag-hold">HOLD ⚡</span></td></tr>
+<tr><td colspan="6" style="background:#2E75B6;color:#fff;font-weight:bold;padding:6px 10px;">── 🟠 SATELLITE / SPECULATIVE E&P — Oil Torque ──</td></tr>
+<tr class="spec"><td><div class="ticker">CRGY</div><div class="company">Crescent Energy</div></td><td>Satellite</td><td>Diversified E&P</td><td>Eagle Ford + Rockies multi-basin US E&P. Growth-through-acquisition model. Dividend maintained through cycle. Complements REPX's Permian concentration with Eagle Ford and Rockies basin diversification.</td><td class="risk">Acquisition integration risk; oil price sensitivity; leverage from growth-by-acquisition model.</td><td><span class="tag tag-hold">HOLD</span></td></tr>
+<tr class="spec"><td><div class="ticker">AKTAF</div><div class="company">Akita Drilling</div></td><td>Satellite</td><td>Oilfield Services</td><td>Canadian oilfield drilling services. Benefits from elevated E&P capex when oil is high — drilling activity is the leading indicator of operator spend. Services angle = different return profile vs pure E&P.</td><td class="risk">OTC liquidity; cyclical with E&P capex budgets; oil price sensitivity through drilling demand.</td><td><span class="tag tag-hold">HOLD</span></td></tr>
+<tr class="spec"><td><div class="ticker">GPRK</div><div class="company">GPRK</div></td><td>Satellite</td><td>E&P / Speculative</td><td>Speculative upstream energy position. Asymmetric oil torque play sized appropriately for risk profile. Benefits from elevated WTI environment through FCF expansion at the small-cap level.</td><td class="risk">Speculative; oil price sensitive; small-cap/OTC liquidity; limited analyst coverage.</td><td><span class="tag tag-hold">HOLD</span></td></tr>
+<tr class="spec"><td><div class="ticker">CLGY</div><div class="company">CLGY</div></td><td>Satellite</td><td>E&P / Speculative</td><td>Small-cap E&P satellite in the diversified oil torque basket. Elevated oil amplifies FCF for smaller operators with fixed cost structures. Pairs with GPRK and VLERF.</td><td class="risk">Small-cap; direct WTI sensitivity; limited liquidity; execution risk at smaller scale.</td><td><span class="tag tag-hold">HOLD</span></td></tr>
+<tr class="spec"><td><div class="ticker">VLERF</div><div class="company">Valueuva</div></td><td>Satellite</td><td>Energy / OTC</td><td>OTC-listed international energy operator (Valueuva). Leveraged exposure to oil price cycle. Part of the speculative oil torque basket — sized small for asymmetric upside in oil bull scenario.</td><td class="risk">OTC liquidity; international operational risk; oil price sensitivity; limited English-language news flow.</td><td><span class="tag tag-hold">HOLD</span></td></tr>
+<tr><td colspan="6" style="background:#404040;color:#fff;font-weight:bold;padding:6px 10px;">── 🚢 TANKER BASKET — Indirect Oil Leverage via Shipping ──</td></tr>
+<tr class="income"><td><div class="ticker">ECO</div><div class="company">Okeanis Eco Tankers</div></td><td>Tanker Core</td><td>Crude Tanker (VLCC/Suezmax)</td><td>100% scrubber-fitted eco fleet. Elevated crude oil production + trade = elevated VLCC rates. Variable dividend tied to spot rates. Greek management with significant skin in game. Core of the tanker basket.</td><td class="risk">Tanker rate cyclicality; geopolitical route changes; crude demand shifts; newbuild competition.</td><td><span class="tag tag-hold">HOLD</span></td></tr>
+<tr class="income"><td><div class="ticker">HAFN</div><div class="company">Hafnia Limited</div></td><td>Tanker Core</td><td>Product Tanker (MR/LR2)</td><td>Major product tanker operator — refined products (gasoline, diesel, jet fuel). Complements ECO's crude exposure. Elevated refining margins = elevated product tanker demand. Larger fleet = diversified income stream vs ECO.</td><td class="risk">Tanker rate cyclicality; refined product demand shifts; newbuild supply overhang; geopolitical route disruptions.</td><td><span class="tag tag-hold">HOLD</span></td></tr>
+<tr class="spec"><td><div class="ticker">IMPP</div><div class="company">Imperial Petroleum</div></td><td>Tanker Speculative</td><td>Crude/Product Tanker</td><td>Micro-cap Greek tanker operator. Highest leverage to tanker rate spikes in basket — size accordingly. Pairs with ECO and HAFN for broader shipping exposure at the highest-risk/highest-reward tier.</td><td class="risk">Micro-cap; highest volatility in basket; thin liquidity; management complexity; geopolitical route risk.</td><td><span class="tag tag-hold">HOLD</span></td></tr>
+<tr><td colspan="6" style="background:#2E75B6;color:#fff;font-weight:bold;padding:6px 10px;">── 💰 MIDSTREAM INCOME — Oil Infrastructure ──</td></tr>
+<tr class="income"><td><div class="ticker">ET</div><div class="company">Energy Transfer LP</div></td><td>Midstream Income</td><td>MLP / Pipeline</td><td>Large US midstream MLP with ~8% distribution yield. Fee-based pipelines, storage, and processing assets. Oil and gas volume throughput = income — less direct commodity price risk than E&P. K-1 required.</td><td class="risk">MLP K-1 tax complexity; distribution sustainability; regulatory pipeline risk; balance sheet leverage.</td><td><span class="tag tag-hold">HOLD</span></td></tr>
+<tr><td colspan="6" style="background:#404040;color:#fff;font-weight:bold;padding:6px 10px;">── 👁 WATCH LIST / SWAP CANDIDATES ──</td></tr>
+<tr class="grey-row"><td><div class="ticker">INSW</div><div class="company">International Seaways</div></td><td>Watch / ECO Swap</td><td>Crude Tanker</td><td>Higher-quality crude tanker operator than IMPP. Potential upgrade swap for ECO — larger fleet, better balance sheet, NYSE-listed with deeper institutional liquidity. Same oil leverage thesis, more institutional-grade structure.</td><td class="risk">Premium valuation vs micro-cap peers; same fundamental tanker rate cyclicality and oil price dependency.</td><td><span class="tag tag-watch">⚡ ECO SWAP?</span></td></tr>
+</table>
+</div>
+
+<!-- ══════════════════════════════════ TAB 4: INCOME & RATE SCENARIOS ══ -->
+<div id="tab-income" class="tab-content">
+<div class="section-hdr">KEY RULE: PDI (leveraged fixed-rate) → EXIT in rates-rising scenario → Replace with ARCC/MAIN (floating-rate BDC)</div>
+<br>
+<table>
+<tr>
+  <th style="width:80px">Ticker</th><th style="width:150px">Vehicle Type</th><th style="width:75px">~Yield</th>
+  <th style="width:200px">Structure</th><th style="width:100px">Rate Risk</th>
+  <th class="bear-hdr" style="width:210px">🔴 Rates RISE → Action</th>
+  <th class="bull-hdr" style="width:210px">🟢 Rates FALL → Action</th>
+  <th style="width:80px">Priority</th><th>Swap Logic / Notes</th>
+</tr>
+<tr class="trim"><td><div class="ticker">PDI</div><div class="company">PIMCO CEF</div></td><td>Leveraged Bond CEF</td><td>~14%</td><td>Leveraged closed-end bond fund. Owns IG & HY bonds with 30-40% leverage.</td><td>🔴 VERY HIGH</td><td class="bear">EXIT → ARCC or MAIN. Fixed-rate leverage = worst possible structure for rising rates. Swap entire position.</td><td class="bull">HOLD / ADD — rate cuts lift bond prices, leverage amplifies NAV gains. Best income vehicle in this scenario.</td><td style="background:#C8E6C9;color:#1B5E20;font-weight:bold">1 — URGENT</td><td>Swap to ARCC in Bear scenario. Re-enter on rate cuts.</td></tr>
+<tr class="income"><td><div class="ticker">CAIE</div><div class="company">Calamos Autocallable</div></td><td>Structured Equity-Linked</td><td>~17-18%</td><td>Autocallable notes. ~17-18% yield. Cap on upside, barrier floor.</td><td>🟡 MODERATE</td><td class="bear">TRIM 50% — autocall structure breaks in high-vol bear market. Barrier levels at risk if equity falls 30-40%.</td><td class="bull">HOLD — low vol grinding up market = autocall mechanics work perfectly.</td><td>2 — Watch Barriers</td><td>Know your barrier levels. In rising rate + bear equity = trim.</td></tr>
+<tr class="income"><td><div class="ticker">CAIQ</div><div class="company">Calamos Autocallable Q</div></td><td>Structured Equity-Linked</td><td>~17-18%</td><td>Same as CAIE, launched Nov 2025. Shorter track record.</td><td>🟡 MODERATE</td><td class="bear">TRIM 50% — same as CAIE. Reduce in high-vol environment.</td><td class="bull">HOLD — same thesis as CAIE. Income engine in calm markets.</td><td>3 — Pair with CAIE</td><td>New vintage of same structure. Same playbook as CAIE.</td></tr>
+<tr class="income"><td><div class="ticker">ARCC</div><div class="company">Ares Capital (BDC)</div></td><td>BDC / Floating Rate</td><td>~9-10%</td><td>Floating-rate senior secured loans to middle-market companies. Income RISES with SOFR. <strong>✅ Bought at Friday close ~$18.95.</strong> Replaces NLY income. PDI hedge pair.</td><td>🟢 VERY LOW</td><td class="bear">ADD MORE — BDC income directly benefits from higher SOFR. This is the PDI REPLACEMENT. Consider adding at $17–17.50 if sector sentiment softens further.</td><td class="bull">HOLD — stable income in rate-cut environment; spread income remains attractive. Keep alongside PDI.</td><td style="background:#C8E6C9;color:#1B5E20;font-weight:bold">1 — Core Income Hold</td><td>Position initiated at ~$18.95. Add more at $17–17.50 if the OBDC news cycle takes us lower. Best-in-class BDC structure — owned for the float-rate income, not speculation.</td></tr>
+<tr class="core"><td><div class="ticker">MAIN</div><div class="company">Main Street Capital</div></td><td>BDC / Monthly Income</td><td>~7-8%</td><td>Internally managed BDC. Monthly dividend. Floating-rate loans. Highest quality underwriting.</td><td>🟢 VERY LOW</td><td class="bear">ADD — monthly float-rate income rises with rates. Premium quality BDC. Less OBDC-drama exposure than ARCC.</td><td class="bull">HOLD — monthly income consistent; internally managed = less fee drag.</td><td>2 — PDI Swap Pair</td><td>Cleaner interim move than ARCC right now. Less in line of fire from Blue Owl/OBDC news cycle.</td></tr>
+<tr class="income"><td><div class="ticker">ET</div><div class="company">Energy Transfer LP</div></td><td>Midstream MLP</td><td>~8%</td><td>Large US midstream MLP. Pipelines, storage, and processing across the US. ~8% distribution. K-1 required. Fee-based cash flows with volume upside when oil throughput is elevated.</td><td>🟢 LOW</td><td class="bear">HOLD / ADD — infrastructure cash flows insulated from rate direction; distribution well-covered by DCF.</td><td class="bull">HOLD — stable fee-based income; distribution growth track record intact.</td><td>3 — Yield Income</td><td>MLP K-1 adds tax complexity. Check your tax situation. Larger and more diversified infrastructure footprint.</td></tr>
+<tr class="income"><td><div class="ticker">MUFG</div><div class="company">Mitsubishi UFJ</div></td><td>Japanese Bank Dividend</td><td>~3-4%</td><td>BOJ rate normalization = structural NIM expansion. ✅ Small position initiated. Dividend growing with earnings. NIM expands directly as BOJ raises rates.</td><td>🟢 POSITIVE</td><td class="bear">ADD MORE — Japan rate rise directly expands NIM. Best positioned name for rate-rise world. Core hold as BOJ normalizes.</td><td class="bull">HOLD — dividend growing; corporate reform story intact. ¥ strength is the primary risk to ADR returns.</td><td>4 — ✅ Owned (small)</td><td>✅ Position initiated. Only name in book where rising rates = direct income boost. BOJ fully independent of Fed — NIM expansion story ongoing.</td></tr>
+</table>
+
+<div style="margin-top:20px;padding:12px;background:#e3f2fd;border-left:4px solid #1565c0;border-radius:2px;font-size:12px;">
+  <strong>⚠️ OBDC / Blue Owl Private Credit Note (Feb 20, 2026):</strong> Blue Owl's non-traded BDC (OBDC II) froze quarterly redemptions and sold $1.4B in loans. El-Erian flagged as "canary in the coal mine" with Bear Stearns parallels. Assets sold at <strong>99.7 cents on the dollar</strong> — valuations appear intact but sector sentiment is damaged. ARCC is best-in-class and unaffected structurally, but the whole BDC sector sold off 4-6%. <strong>ARCC initiated at ~$18.95 (Friday Feb 21 close).</strong> Position is live. Add at $17–17.50 if sector weakness continues. AGNC is not an NLY replacement — same structural risks, lower quality.
+</div>
+</div>
+<!-- ══════════════════════════════════ TAB 5: ADD PIPELINE ═══════════ -->
+<div id="tab-pipeline" class="tab-content">
+<table>
+<tr>
+  <th style="width:215px">Ticker / Company</th><th style="width:90px">Country</th>
+  <th style="width:130px">Approx Price / Entry Zone</th><th style="width:80px">FCF / Yield</th>
+  <th style="width:70px">Priority</th><th>Thesis</th><th style="width:230px">Sizing Note / Condition</th>
+</tr>
+<tr class="core"><td><div class="ticker">VALE</div><div class="company">Vale S.A.</div></td><td>Brazil</td><td>~$11 / Target $9-10</td><td>12-14% FCF yield</td><td><span class="priority-1">🥇 #1</span></td><td>World's largest iron ore + copper + nickel miner. 8x fwd P/E. $4.8B Q4 EBITDA. Copper record $6/lb. Nibble on dips — real risk is iron ore price below $90/t. Use EBITDA not GAAP P/E (impairments distort).</td><td>Start 60% of target size on first dip. Add remaining on second dip or MRNFF Venus FID confirmation. VALE:RIO = 60:40 sizing.</td></tr>
+<tr class="core"><td><div class="ticker">RIO</div><div class="company">Rio Tinto</div></td><td>Australia/UK</td><td>~$64 / Target $58-62</td><td>4.5% + specials</td><td><span class="priority-2">🥈 #2</span></td><td>Diversified mining giant. Arcadium lithium + Simandou + Oyu Tolgoi copper ramp. Better balance sheet than VALE. Capex cycle resolves 2027-28 = FCF expansion. Quality anchor to VALE's higher-yield position.</td><td>40% of mining target on first dip. VALE:RIO = 60:40. RIO is the quality anchor if VALE's Brazil/China risk flares.</td></tr>
+<tr class="spec"><td><div class="ticker">ITUB</div><div class="company">Itaú Unibanco</div></td><td>Brazil</td><td>~$9.70 / Target $8.00-8.50</td><td>7-8% (BR class)</td><td>#5</td><td>Brazil's largest private bank. 21% ROE. 32% net margin. Best-in-class LatAm financial. Currently too expensive — analyst targets clustered BELOW current price. Patience is the whole trade here.</td><td>Do NOT chase at $9.70. Wait for pullback to $8.00-8.50. Strong conviction once entry is right. Best LatAm bank bar none.</td></tr>
+<tr class="income"><td><div class="ticker">MAIN</div><div class="company">Main Street Capital</div></td><td>USA</td><td>~$52 / Target $48-50</td><td>7-8% monthly</td><td>#2 (Rate hedge)</td><td>Premium BDC. Internally managed. Monthly dividends. Cleaner near-term entry than ARCC given less OBDC association. Pair with ARCC for floating-rate income diversification.</td><td>Cleaner interim move than ARCC right now for NLY income replacement. Monthly income supplements CAIE/CAIQ.</td></tr>
+<tr class="spec"><td><div class="ticker">SRGH.Y</div><div class="company">Shoprite Holdings</div></td><td>Africa</td><td>OTC / Entry available</td><td>2-3%</td><td>#6 (Africa diversifier)</td><td>Africa's largest grocery chain. 3,500+ stores in 14 countries. Demographic mega-trend. Pairs with MRNFF for Africa exposure diversification. Consumer staples = defensive.</td><td>Requires broker with OTC international access (Interactive Brokers). Small initial position — liquidity thin on ADR.</td></tr>
+<tr class="spec"><td><div class="ticker">INFY</div><div class="company">Infosys</div></td><td>India</td><td>~$18 / Target $16-17</td><td>~2% + buybacks</td><td>#7 (Contrarian)</td><td>Counter-cyclical to US tech. Down 27% from 52-week high on tariff/IT spending fears. Profitable. Strong FCF. Returns capital. AI services tailwind long-term. Complement to IBN in India basket.</td><td>Add only if India IT sector weakness continues. Not a rush — contrarian entry only.</td></tr>
+<tr class="spec"><td><div class="ticker">INSW</div><div class="company">International Seaways</div></td><td>USA/Intl</td><td>~$35-42 / Watch ECO levels</td><td>~5-7% variable</td><td>⚡ ECO Swap</td><td>Higher-quality crude tanker operator than IMPP. Potential quality upgrade swap for ECO — larger fleet, better balance sheet, NYSE-listed with deeper liquidity. Same oil shipping leverage thesis at a more institutional-grade structure.</td><td>Swap to INSW post ECO dividend if quality upgrade desired, or if ECO becomes overweight. Monitor alongside ECO quarterly performance and tanker rate cycle.</td></tr>
+</table>
+</div>
+<!-- ══════════════════════════════════ TAB 6: MACRO SCENARIOS ════════ -->
+<div id="tab-macro" class="tab-content">
+<table>
+<tr>
+  <th style="width:160px">Position / Cluster</th>
+  <th class="bull-hdr" style="width:195px">🟢 BULL (Rate Cuts + Soft Landing)</th>
+  <th class="oil-hdr" style="width:195px">🛢️ STAGFLATION (Oil High + Rates Sticky)</th>
+  <th class="bear-hdr" style="width:195px">🔴 BEAR (Rates Rise + Recession)</th>
+  <th class="em-hdr" style="width:195px">🌐 JAPAN/EM DIVERGENCE</th>
+  <th style="width:160px">Key Indicator to Watch</th>
+</tr>
+
+<tr><td colspan="6" style="background:#1F3864;color:#fff;font-weight:bold;padding:6px 10px;">── 🏗️ SaaS / SOFTWARE CORE ──</td></tr>
+<tr class="core">
+  <td><strong>MSFT / ORCL / ZS / VEEV / DOCS / QTWO</strong></td>
+  <td class="bull">HOLD — rate cuts expand multiples; AI buildout continues</td>
+  <td class="oil">HOLD — essential infrastructure; AI capex doesn't stop in stagflation</td>
+  <td class="bear">TRIM 20-30% — high-multiple long-duration; multiple compression hits first</td>
+  <td class="em">NEUTRAL — US-centric; dollar strength is headwind for int'l revenue</td>
+  <td>Azure growth; Copilot attach rate; Fed dot plot; 10Y Treasury yield</td>
+</tr>
+<tr class="core">
+  <td><strong>CLS / ALAB / QCOM / LMAT</strong></td>
+  <td class="bull">HOLD — rate cuts + AI cycle = double tailwind</td>
+  <td class="oil">HOLD — hardware/infra spending persists; TRMB construction activity holds</td>
+  <td class="bear">HOLD — better multiple discipline than pure SaaS; CLS has real earnings</td>
+  <td class="em">NEUTRAL — US-listed; some EM revenue exposure</td>
+  <td>Hyperscaler capex; AI PC attach rate; AXON e-commerce launch</td>
+</tr>
+
+<tr><td colspan="6" style="background:#1F3864;color:#fff;font-weight:bold;padding:6px 10px;">── 🌍 INTERNATIONAL CORE ──</td></tr>
+<tr class="income">
+  <td><strong>EQNR / DVN / ECO / HAFN / REPX / CRGY</strong></td>
+  <td class="bull">HOLD — oil income reliable; dividend yield attractive in rate-cut world</td>
+  <td class="oil">ADD — oil elevated = these names OUTPERFORM. Core portfolio hedge.</td>
+  <td class="bear">TRIM if oil falls — FCF tied to WTI; cut targets if WTI &lt; $60</td>
+  <td class="em">HOLD — NOK/COP/USD reasonably stable; EQNR European reform story</td>
+  <td>WTI oil price; OPEC+ meetings; DVN Coterra merger close Q2 2026</td>
+</tr>
+<tr class="income">
+  <td><strong>MRNFF</strong></td>
+  <td class="bull">HOLD — Venus catalyst is independent of macro</td>
+  <td class="oil">ADD — oil elevated boosts deepwater Nigeria FCF; Venus economics improve</td>
+  <td class="bear">HOLD — Venus FID is binary, not macro-dependent</td>
+  <td class="em">HOLD — Africa upstream relatively insulated from US rate policy</td>
+  <td>⚡ Venus FID announcement H1 2026; Feb 25 earnings call</td>
+</tr>
+<tr class="income">
+  <td><strong>IBN / PHI</strong></td>
+  <td class="bull">ADD — India rate cuts accelerate credit growth; peso stable</td>
+  <td class="oil">HOLD — domestic economies partially insulated; IBN India focus</td>
+  <td class="bear">HOLD — domestically funded banks; less USD-sensitive than most EM</td>
+  <td class="em">HOLD — India independent rate cycle; Philippines telecom defensive</td>
+  <td>India CPI; RBI rate decisions; PLDT capex completion</td>
+</tr>
+<tr class="income">
+  <td><strong>TME / JD</strong></td>
+  <td class="bull">ADD — rate cuts + EM re-rating = upside across Asia digital basket</td>
+  <td class="oil">TRIM — oil hurts China/SE Asia macro; elevated costs pressure platforms</td>
+  <td class="bear">TRIM — high-multiple EM growth most exposed to rate shock</td>
+  <td class="em">WATCH — China ADR delisting risk; SE Asia EM capital outflows</td>
+  <td>DXY (USD strength); China stimulus announcements; TME/JD earnings</td>
+</tr>
+
+<tr><td colspan="6" style="background:#1F3864;color:#fff;font-weight:bold;padding:6px 10px;">── 💰 INCOME VEHICLES ──</td></tr>
+<tr class="income">
+  <td><strong>PDI (PIMCO CEF)</strong></td>
+  <td class="bull">ADD — rate cuts lift NAV; leverage amplifies gains</td>
+  <td class="oil">TRIM 50% — rate sticky = NAV erosion begins</td>
+  <td class="bear">EXIT → ARCC — rising rates + leverage = catastrophic for fixed-rate CEF</td>
+  <td class="em">HOLD — PDI global bond exposure partially hedges US rate risk</td>
+  <td>10Y Treasury yield; Fed statement language; PDI NAV vs price premium/discount</td>
+</tr>
+<tr class="income">
+  <td><strong>CAIE / CAIQ</strong></td>
+  <td class="bull">HOLD — grinding up low-vol market = autocall mechanics perfect</td>
+  <td class="oil">TRIM 50% — high-vol environment tests autocall barrier mechanics</td>
+  <td class="bear">TRIM 50% — equity drawdown risk tests downside barriers</td>
+  <td class="em">NEUTRAL — US equity-linked; EM divergence limited direct impact</td>
+  <td>VIX level; equity barrier distance; monthly autocall check</td>
+</tr>
+<tr class="core">
+  <td><strong>ARCC / MAIN (BDC)</strong></td>
+  <td class="bull">HOLD — income stable; spread attractive. ARCC owned at ~$18.95.</td>
+  <td class="oil">HOLD — float-rate income rises with elevated rates; ARCC income RISES with SOFR</td>
+  <td class="bear">ADD — ARCC income RISES with rates. PDI replacement confirmed. ✅ ARCC initiated; add more at $17–17.50.</td>
+  <td class="em">HOLD — middle market lending; limited direct EM exposure</td>
+  <td>SOFR rate; middle market credit quality; BDC NAV quarterly; Blue Owl news cycle</td>
+</tr>
+
+<tr><td colspan="6" style="background:#1F3864;color:#fff;font-weight:bold;padding:6px 10px;">── 🎯 PENDING ADDS ──</td></tr>
+<tr class="spec">
+  <td><strong>VALE / RIO</strong></td>
+  <td class="bull">ADD on dips — commodity demand rises in soft landing</td>
+  <td class="oil">ADD — hard assets outperform; commodity supercycle intact</td>
+  <td class="bear">HOLD / REDUCE — recession = iron ore demand drops (China). Watch closely.</td>
+  <td class="em">HOLD — China iron ore demand is key variable; RIO more diversified</td>
+  <td>Iron ore spot price; copper price; China PMI; VALE quarterly earnings</td>
+</tr>
+<tr class="spec">
+  <td><strong>MUFG</strong></td>
+  <td class="bull">HOLD / ADD — BOJ corporate reform ongoing; NIM expanding; dividend growing</td>
+  <td class="oil">ADD — BOJ normalizes rates = NIM expands; MUFG earns more</td>
+  <td class="bear">ADD — BOJ rising rates = MUFG best placed. Unique in the book.</td>
+  <td class="em">ADD — BOJ independent of Fed; Japanese rate rise is UNIQUE tailwind</td>
+  <td>BOJ policy meetings; USD/JPY; MUFG NIM disclosure quarterly</td>
+</tr>
+
+<tr><td colspan="6" style="background:#404040;color:#fff;font-weight:bold;padding:6px 10px;">── ⚡ SPECULATIVE / TECHNICAL (Chart-driven — Size Accordingly) ──</td></tr>
+<tr class="spec">
+  <td><strong>IPX / ISOU / NTLA / SNTI / LWLG / KDK / WRD / PHR / PENG / SLP / PRME / U / IMPP / IBIT</strong></td>
+  <td class="bull">HOLD — risk-on favors speculative charts</td>
+  <td class="oil">HOLD — commodity/materials specs benefit (IPX titanium, ISOU uranium); biotech independent</td>
+  <td class="bear">TRIM or EXIT if charts break — speculative names hit hardest in bear. Respect stop losses.</td>
+  <td class="em">NEUTRAL — US-listed specs; EM exposure minimal</td>
+  <td>Individual chart setups; catalyst timelines; cash runway for biotech names</td>
+</tr>
+</table>
+</div>
+<!-- ══════════════════════════════════ TAB 7: LEGEND ════════════════ -->
+<div id="tab-legend" class="tab-content">
+<div class="legend-grid">
+<div>
+  <div class="section-hdr mid" style="margin-top:0">ACTION TAGS</div>
+  <div class="legend-item"><span class="legend-swatch tag tag-buy">BUY / ADD</span><span>Conviction entry — initiate or increase position</span></div>
+  <div class="legend-item"><span class="legend-swatch tag tag-hold">HOLD</span><span>Current sizing is correct — no change needed</span></div>
+  <div class="legend-item"><span class="legend-swatch tag tag-dip">WAIT FOR DIP</span><span>High conviction but price not yet at target — be patient</span></div>
+  <div class="legend-item"><span class="legend-swatch tag tag-trim">TRIM</span><span>Reduce size — overweight, redundant, or scenario-dependent exit</span></div>
+  <div class="legend-item"><span class="legend-swatch tag tag-exit">EXIT — CONFIRMED</span><span>Full exit — thesis broken or confirmed sell</span></div>
+  <div class="legend-item"><span class="legend-swatch tag tag-capture">CAPTURE TRADE</span><span>Short-term tactical — defined entry/exit</span></div>
+  <div class="legend-item"><span class="legend-swatch tag tag-watch">WATCH</span><span>Research candidate — monitoring for entry</span></div>
+  <div class="legend-item"><span class="legend-swatch tag tag-pending">PENDING ADD</span><span>High conviction — waiting for dip to target entry zone</span></div>
+</div>
+<div>
+  <div class="section-hdr mid" style="margin-top:0">ROW BACKGROUNDS</div>
+  <div class="legend-item"><span class="legend-swatch" style="background:#EBF3FB;color:#0D47A1;border:1px solid #c0d4ee">Core Quality</span><span>High-conviction quality compounder — foundational</span></div>
+  <div class="legend-item"><span class="legend-swatch" style="background:#E8F5E9;color:#1B5E20;border:1px solid #b2dfdb">Income</span><span>Income-generating vehicle — yield, dividends, distributions</span></div>
+  <div class="legend-item"><span class="legend-swatch" style="background:#FFF8E1;color:#E65100;border:1px solid #ffe082">Speculative / Technical</span><span>Chart-driven or binary catalyst — sized for asymmetric outcome</span></div>
+  <div class="legend-item"><span class="legend-swatch" style="background:#FFF3E0;color:#BF360C;border:1px solid #ffcc80">Trim Candidate</span><span>Reduce or exit — rate scenario, redundancy, or better alternatives exist</span></div>
+  <div class="legend-item"><span class="legend-swatch" style="background:#FFEBEE;color:#B71C1C;border:1px solid #ef9a9a">Exit Confirmed</span><span>Full exit — no remaining thesis</span></div>
+
+  <div class="section-hdr mid">SCENARIO COLUMNS</div>
+  <div class="legend-item"><span class="legend-swatch" style="background:#E8F5E9;color:#1B5E20;border:1px solid #a5d6a7">🟢 Bull / Rates Fall</span><span>Favorable outcome in rate-cut scenario</span></div>
+  <div class="legend-item"><span class="legend-swatch" style="background:#FFEBEE;color:#B71C1C;border:1px solid #ef9a9a">🔴 Bear / Rates Rise</span><span>Adverse outcome — review action tag</span></div>
+  <div class="legend-item"><span class="legend-swatch" style="background:#FFF8E1;color:#E65100;border:1px solid #ffe082">🛢️ Oil Elevated</span><span>Commodity scenario impact on position</span></div>
+  <div class="legend-item"><span class="legend-swatch" style="background:#ECEFF1;color:#37474F;border:1px solid #cfd8dc">⚠️ EM Stress</span><span>Emerging market stress scenario</span></div>
+</div>
+</div>
+
+<div style="margin-top:24px;padding:12px;background:#fff3e0;border-left:4px solid #ff9800;font-size:12px;border-radius:2px;">
+  <strong>Disclaimer:</strong> This document is a personal portfolio reference for informational purposes only. It does not constitute financial advice, a solicitation, or a recommendation to buy or sell any security. All investment decisions carry risk. Past performance does not guarantee future results. Always do your own due diligence.
+</div>
+</div>
+
+<script>
+function showTab(name) {
+  document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+  document.getElementById('tab-' + name).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>
+</body>
+</html>
