@@ -44,7 +44,7 @@
 
   /* ── SECTION HEADERS ── */
   .section-hdr {
-    background: #1F3864; color: #fff; font-weight: bold; font-size: 12px;
+    background: #1F3864; color: #c9d1d9; font-weight: bold; font-size: 12px;
     padding: 7px 14px; margin: 20px 0 0 0; letter-spacing: 0.5px;
     border-left: 4px solid #2E75B6;
   }
@@ -243,6 +243,11 @@
   .opts-lose { background: #1f0d0d; }
   .opts-neutral { background: #111820; }
 
+  /* simplified allocation rows */
+  .alloc-row-simple { display: flex; align-items: baseline; gap: 12px; padding: 5px 0; border-bottom: 1px solid #1e2a3a; }
+  .alloc-row-simple:last-child { border-bottom: none; }
+  .alloc-sector { font-size: 11px; font-weight: bold; color: #c9d1d9; white-space: nowrap; min-width: 260px; }
+  .alloc-tickers { font-size: 11px; color: #58a6ff; font-family: monospace; flex-wrap: wrap; }
   @media (max-width: 900px) {
     .overview-grid { grid-template-columns: 1fr 1fr; }
     .scenario-row  { grid-template-columns: 1fr; }
@@ -291,123 +296,26 @@
 ══════════════════════════════════════════════════════════════ -->
 <div id="tab-overview" class="tab-content active">
 
-  <!-- KPI ROW -->
-  <div class="overview-grid">
-    <div class="stat-card blue">
-      <div class="sc-label">Equity Positions</div>
-      <div class="sc-val">~45</div>
-      <div class="sc-sub">Across all sectors + accounts</div>
-    </div>
-    <div class="stat-card orange">
-      <div class="sc-label">Options Positions</div>
-      <div class="sc-val">~50+</div>
-      <div class="sc-sub">Long calls/puts across sectors</div>
-    </div>
-    <div class="stat-card red">
-      <div class="sc-label">Healthcare Positions</div>
-      <div class="sc-val">9+</div>
-      <div class="sc-sub">Devices · Diagnostics · Biotech</div>
-    </div>
-    <div class="stat-card green">
-      <div class="sc-label">Macro Regime</div>
-      <div class="sc-val" style="font-size:14px;">Stalemate</div>
-      <div class="sc-sub">50% base probability · Hormuz closed</div>
-    </div>
-  </div>
-
   <!-- SECTOR ALLOCATION BARS -->
   <div class="alloc-bar-wrap">
-    <div class="alloc-bar-title">Portfolio Sector Allocation — Approximate Weight</div>
-    <div class="alloc-row">
-      <div class="alloc-label">🧬 Biotech / Gene Editing</div>
-      <div class="alloc-track"><div class="alloc-fill" style="width:18%;background:linear-gradient(90deg,#2e7d32,#43a047)"><span>BEAM · NTLA · SNTI · LCTX · CRSP</span></div></div>
-      <div class="alloc-count">~18%</div>
-    </div>
-    <div class="alloc-row">
-      <div class="alloc-label">💻 Software / Enterprise Tech</div>
-      <div class="alloc-track"><div class="alloc-fill" style="width:14%;background:linear-gradient(90deg,#1565c0,#1976d2)"><span>MSFT · ORCL · ADBE · PEGA · FIVN</span></div></div>
-      <div class="alloc-count">~14%</div>
-    </div>
-    <div class="alloc-row">
-      <div class="alloc-label">🛢️ Energy E&P / Royalties</div>
-      <div class="alloc-track"><div class="alloc-fill" style="width:12%;background:linear-gradient(90deg,#e65100,#ef6c00)"><span>DVN · EQNR · REPX · CRGY · MRNFF</span></div></div>
-      <div class="alloc-count">~12%</div>
-    </div>
-    <div class="alloc-row">
-      <div class="alloc-label">🏥 Healthcare Devices / Services</div>
-      <div class="alloc-track"><div class="alloc-fill" style="width:11%;background:linear-gradient(90deg,#1a5276,#2e86c1)"><span>MDT · ATRC · LMAT · INFU · ADUS · TCMD · ATEC · PRVA</span></div></div>
-      <div class="alloc-count">~11%</div>
-    </div>
-    <div class="alloc-row">
-      <div class="alloc-label">🚢 Tankers / MLP / Shipping</div>
-      <div class="alloc-track"><div class="alloc-fill" style="width:10%;background:linear-gradient(90deg,#4e342e,#6d4c41)"><span>ET · HAFN · ECO · TATT</span></div></div>
-      <div class="alloc-count">~10%</div>
-    </div>
-    <div class="alloc-row">
-      <div class="alloc-label">💰 Income / BDC / CEF / REIT</div>
-      <div class="alloc-track"><div class="alloc-fill" style="width:9%;background:linear-gradient(90deg,#6a1b9a,#7b1fa2)"><span>ARCC · PDI · AGNC · O · AWR · HTO</span></div></div>
-      <div class="alloc-count">~9%</div>
-    </div>
-    <div class="alloc-row">
-      <div class="alloc-label">🌍 Int'l / EM Banking</div>
-      <div class="alloc-track"><div class="alloc-fill" style="width:7%;background:linear-gradient(90deg,#00695c,#00796b)"><span>IBN · MUFG · PHI · ITUB</span></div></div>
-      <div class="alloc-count">~7%</div>
-    </div>
-    <div class="alloc-row">
-      <div class="alloc-label">🏭 Industrials / Infrastructure</div>
-      <div class="alloc-track"><div class="alloc-fill" style="width:8%;background:linear-gradient(90deg,#37474f,#455a64)"><span>HON · APH · UPS · CSL · LMB · POR · MTRX · SOTK</span></div></div>
-      <div class="alloc-count">~8%</div>
-    </div>
-    <div class="alloc-row">
-      <div class="alloc-label">🚗 Consumer / Brands</div>
-      <div class="alloc-track"><div class="alloc-fill" style="width:6%;background:linear-gradient(90deg,#880e4f,#ad1457)"><span>TSLA · SPOT · CLX</span></div></div>
-      <div class="alloc-count">~6%</div>
-    </div>
-    <div class="alloc-row">
-      <div class="alloc-label">💼 Asset Management / Fintech</div>
-      <div class="alloc-track"><div class="alloc-fill" style="width:5%;background:linear-gradient(90deg,#1a237e,#283593)"><span>AMP · BEN · LC</span></div></div>
-      <div class="alloc-count">~5%</div>
-    </div>
-    <div class="alloc-row">
-      <div class="alloc-label">🔬 Photonics Sleeve</div>
-      <div class="alloc-track"><div class="alloc-fill" style="width:5%;background:linear-gradient(90deg,#005f6b,#00b4d8)"><span>LWLG · IQEPF · IPGP · OSS</span></div></div>
-      <div class="alloc-count">~5%</div>
-    </div>
-    <div class="alloc-row">
-      <div class="alloc-label">🤖 Robotics Sleeve</div>
-      <div class="alloc-track"><div class="alloc-fill" style="width:4%;background:linear-gradient(90deg,#4a0080,#7b2fbe)"><span>SYM · ZBRA</span></div></div>
-      <div class="alloc-count">~4%</div>
-    </div>
-    <div class="alloc-row">
-      <div class="alloc-label">🌐 AI Infra / Networking</div>
-      <div class="alloc-track"><div class="alloc-fill" style="width:5%;background:linear-gradient(90deg,#0d47a1,#1565c0)"><span>CLFD · CRWV · ANET · CRDO · ZETA</span></div></div>
-      <div class="alloc-count">~5%</div>
-    </div>
-    <div class="alloc-row">
-      <div class="alloc-label">🛡️ Defense / Aerospace</div>
-      <div class="alloc-track"><div class="alloc-fill" style="width:5%;background:linear-gradient(90deg,#1a237e,#283593)"><span>KTOS · KRMN · AVEX · FJET</span></div></div>
-      <div class="alloc-count">~5%</div>
-    </div>
-    <div class="alloc-row">
-      <div class="alloc-label">🌏 EM Consumer / Superapp</div>
-      <div class="alloc-track"><div class="alloc-fill" style="width:3%;background:linear-gradient(90deg,#1b5e20,#2e7d32)"><span>GRAB</span></div></div>
-      <div class="alloc-count">~3%</div>
-    </div>
-    <div class="alloc-row">
-      <div class="alloc-label">🛒 Consumer Staples / Produce</div>
-      <div class="alloc-track"><div class="alloc-fill" style="width:4%;background:linear-gradient(90deg,#b71c1c,#c62828)"><span>ACI · FDP · AVO · CENT</span></div></div>
-      <div class="alloc-count">~4%</div>
-    </div>
-    <div class="alloc-row">
-      <div class="alloc-label">⛏️ Mining / Commodities / Ag</div>
-      <div class="alloc-track"><div class="alloc-fill" style="width:4%;background:linear-gradient(90deg,#3e2723,#4e342e)"><span>VALE · ISOU · IPMLF · WEAT</span></div></div>
-      <div class="alloc-count">~4%</div>
-    </div>
-    <div class="alloc-row">
-      <div class="alloc-label">☢️ Nuclear / Critical Materials</div>
-      <div class="alloc-track"><div class="alloc-fill" style="width:2%;background:linear-gradient(90deg,#1a3d1a,#2e7d32)"><span>LTBR · ISOU</span></div></div>
-      <div class="alloc-count">~2%</div>
-    </div>
+    <div class="alloc-bar-title">Portfolio Sector Allocation — Current Holdings by Sector</div>
+    <div class="alloc-row-simple"><span class="alloc-sector">🌐 AI Infrastructure / Networking</span><span class="alloc-tickers">CLFD · CRWV · ANET · CRDO · ZETA · SMCI</span></div>
+    <div class="alloc-row-simple"><span class="alloc-sector">💻 Software / Enterprise Tech</span><span class="alloc-tickers">MSFT · ORCL · ADBE · PEGA · FIVN · GLOB · CTSH · IDCC</span></div>
+    <div class="alloc-row-simple"><span class="alloc-sector">🧬 Biotech / Gene Editing</span><span class="alloc-tickers">BEAM · NTLA · LEGN · SNTI · LCTX · CRSP</span></div>
+    <div class="alloc-row-simple"><span class="alloc-sector">🏥 Healthcare Devices / Services</span><span class="alloc-tickers">MDT · ATRC · LMAT · INFU · ADUS · TCMD · ATEC · PRVA · INSP · PAHC · BDSX</span></div>
+    <div class="alloc-row-simple"><span class="alloc-sector">🛢️ Energy E&P / Royalties</span><span class="alloc-tickers">DVN · EQNR · REPX · CRGY · MRNFF · SD</span></div>
+    <div class="alloc-row-simple"><span class="alloc-sector">🚢 Tankers / MLP / Shipping</span><span class="alloc-tickers">ET · HAFN · ECO</span></div>
+    <div class="alloc-row-simple"><span class="alloc-sector">💰 Income / BDC / CEF / REIT</span><span class="alloc-tickers">ARCC · PDI · O · AWR · HTO · BEP</span></div>
+    <div class="alloc-row-simple"><span class="alloc-sector">🌍 International & EM</span><span class="alloc-tickers">IBN · MUFG · PHI · GRAB · ITUB · DLO · FUPBY · HHLKF</span></div>
+    <div class="alloc-row-simple"><span class="alloc-sector">🏭 Defense / Industrials / Infrastructure</span><span class="alloc-tickers">KTOS · KRMN · AVEX · FJET · TATT · HON · APH · UPS · CSL · LMB · POR · MTRX · SOTK · SCIA · PNR</span></div>
+    <div class="alloc-row-simple"><span class="alloc-sector">🚗 Consumer / Brands</span><span class="alloc-tickers">TSLA · SPOT · CHWY · TSCO · HOG · DUOT · ADNT</span></div>
+    <div class="alloc-row-simple"><span class="alloc-sector">💼 Asset Management / Fintech</span><span class="alloc-tickers">AMP · BEN · LC · UI</span></div>
+    <div class="alloc-row-simple"><span class="alloc-sector">🔬 Photonics Sleeve</span><span class="alloc-tickers">LWLG · IQEPY · IPGP · OSS · POET · OLED · SILC</span></div>
+    <div class="alloc-row-simple"><span class="alloc-sector">🤖 Robotics Sleeve</span><span class="alloc-tickers">SYM · ZBRA · AEVA · NVEC</span></div>
+    <div class="alloc-row-simple"><span class="alloc-sector">🌏 Consumer Staples / Produce</span><span class="alloc-tickers">ACI · FDP · AVO · CENT</span></div>
+    <div class="alloc-row-simple"><span class="alloc-sector">⛏️ Mining / Commodities / Ag</span><span class="alloc-tickers">VALE · IPMLF · ERO · CSCCF · SPPP · HL · WEAT</span></div>
+    <div class="alloc-row-simple"><span class="alloc-sector">☢️ Nuclear / Critical Materials</span><span class="alloc-tickers">LTBR · ISOU · OKLO · NB · AREC</span></div>
+    <div class="alloc-row-simple"><span class="alloc-sector">⚡ Industrial / Clean Tech</span><span class="alloc-tickers">F · XE · KRKNF · LEGN · IDCC</span></div>
   </div>
 
   <!-- HOLDINGS BUBBLE MAP BY QUALITY -->
@@ -417,12 +325,18 @@
       <div class="bubble-grid" style="margin-top:10px;">
         <div class="bubble conv-b"><div class="b-tick">CLFD</div><div class="b-type" style="color:#58a6ff">Fiber</div></div>
         <div class="bubble conv-b"><div class="b-tick">CRWV</div><div class="b-type" style="color:#58a6ff">GPU Cloud</div></div>
+        <div class="bubble conv-b"><div class="b-tick">ANET</div><div class="b-type" style="color:#58a6ff">AI Network</div></div>
+        <div class="bubble conv-b"><div class="b-tick">CRDO</div><div class="b-type" style="color:#58a6ff">AI Ethernet</div></div>
         <div class="bubble conv-b"><div class="b-tick">BEAM</div><div class="b-type" style="color:#58a6ff">Gene Editing</div></div>
         <div class="bubble conv-b"><div class="b-tick">NTLA</div><div class="b-type" style="color:#58a6ff">In Vivo CRISPR</div></div>
         <div class="bubble conv-b"><div class="b-tick">ET</div><div class="b-type" style="color:#58a6ff">Midstream MLP</div></div>
-        <div class="bubble conv-b"><div class="b-tick">LTBR</div><div class="b-type" style="color:#58a6ff">Nuclear Tech</div></div>
-        <div class="bubble conv-b"><div class="b-tick">TSLA</div><div class="b-type" style="color:#58a6ff">EV / AI / Robotics</div></div>
+        <div class="bubble conv-b"><div class="b-tick">KTOS</div><div class="b-type" style="color:#58a6ff">Autonomous Defense</div></div>
+        <div class="bubble conv-b"><div class="b-tick">AVEX</div><div class="b-type" style="color:#58a6ff">UAS / Drones</div></div>
+        <div class="bubble conv-b"><div class="b-tick">ATRC</div><div class="b-type" style="color:#58a6ff">Cardiac Ablation</div></div>
         <div class="bubble conv-b"><div class="b-tick">PDI</div><div class="b-type" style="color:#58a6ff">PIMCO CEF</div></div>
+        <div class="bubble conv-b"><div class="b-tick">SYM</div><div class="b-type" style="color:#58a6ff">Warehouse AI</div></div>
+        <div class="bubble conv-b"><div class="b-tick">AEVA</div><div class="b-type" style="color:#58a6ff">4D LiDAR</div></div>
+        <div class="bubble conv-b"><div class="b-tick">LWLG</div><div class="b-type" style="color:#58a6ff">EO Polymers</div></div>
       </div>
     </div>
     <div>
@@ -444,7 +358,6 @@
         <div class="bubble core-b"><div class="b-tick">EQNR</div><div class="b-type" style="color:#56d364">Norway E&P</div></div>
         <div class="bubble core-b"><div class="b-tick">MUFG</div><div class="b-type" style="color:#56d364">Japan Bank</div></div>
         <div class="bubble core-b"><div class="b-tick">IBN</div><div class="b-type" style="color:#56d364">India Bank</div></div>
-        <div class="bubble core-b"><div class="b-tick">AGNC</div><div class="b-type" style="color:#56d364">mREIT</div></div>
         <div class="bubble core-b"><div class="b-tick">LMAT</div><div class="b-type" style="color:#56d364">Vascular Devices</div></div>
         <div class="bubble core-b"><div class="b-tick">MDT</div><div class="b-type" style="color:#56d364">Med Devices</div></div>
         <div class="bubble core-b"><div class="b-tick">ADUS</div><div class="b-type" style="color:#56d364">Home Care</div></div>
@@ -472,45 +385,60 @@
     <div class="hm-cell hm-pos-mid"><div class="hm-tick">ET</div><div class="hm-pnl" style="color:#56d364">~$57B</div><div class="hm-type">Midstream MLP</div></div>
     <div class="hm-cell hm-pos-mid"><div class="hm-tick">O</div><div class="hm-pnl" style="color:#56d364">~$50B</div><div class="hm-type">Net Lease REIT</div></div>
     <div class="hm-cell hm-pos-mid"><div class="hm-tick">AMP</div><div class="hm-pnl" style="color:#56d364">~$48B</div><div class="hm-type">Wealth Mgmt</div></div>
+    <div class="hm-cell hm-pos-mid"><div class="hm-tick">CTSH</div><div class="hm-pnl" style="color:#56d364">~$45B</div><div class="hm-type">IT Services</div></div>
     <div class="hm-cell hm-pos-mid"><div class="hm-tick">VALE</div><div class="hm-pnl" style="color:#56d364">~$45B</div><div class="hm-type">Mining</div></div>
     <div class="hm-cell hm-pos-mid"><div class="hm-tick">CRWV</div><div class="hm-pnl" style="color:#56d364">~$43B</div><div class="hm-type">GPU Cloud AI</div></div>
+    <div class="hm-cell hm-pos-mid"><div class="hm-tick">F</div><div class="hm-pnl" style="color:#56d364">~$40B</div><div class="hm-type">Automotive/PowerCell</div></div>
     <div class="hm-cell hm-pos-mid"><div class="hm-tick">HON</div><div class="hm-pnl" style="color:#56d364">~$38B</div><div class="hm-type">Industrial</div></div>
     <div class="hm-cell hm-pos-mid"><div class="hm-tick">SYM</div><div class="hm-pnl" style="color:#56d364">~$32B</div><div class="hm-type">Warehouse AI 🤖</div></div>
     <div class="hm-cell hm-pos-mid"><div class="hm-tick">CRDO</div><div class="hm-pnl" style="color:#56d364">~$22B</div><div class="hm-type">AI Ethernet</div></div>
+    <div class="hm-cell hm-pos-mid"><div class="hm-tick">INSP</div><div class="hm-pnl" style="color:#56d364">~$20B</div><div class="hm-type">OmniPod CGM</div></div>
+    <div class="hm-cell hm-pos-mid"><div class="hm-tick">SMCI</div><div class="hm-pnl" style="color:#56d364">~$18B</div><div class="hm-type">AI Servers</div></div>
     <div class="hm-cell hm-pos-mid"><div class="hm-tick">DVN</div><div class="hm-pnl" style="color:#56d364">~$17B</div><div class="hm-type">E&P Permian</div></div>
+    <div class="hm-cell hm-pos-mid"><div class="hm-tick">TSCO</div><div class="hm-pnl" style="color:#56d364">~$16B</div><div class="hm-type">Rural Retail</div></div>
     <div class="hm-cell hm-pos-small"><div class="hm-tick">GRAB</div><div class="hm-pnl" style="color:#3fb950">~$15B</div><div class="hm-type">SEA Superapp 🌍</div></div>
     <div class="hm-cell hm-pos-small"><div class="hm-tick">BEP</div><div class="hm-pnl" style="color:#3fb950">~$14B</div><div class="hm-type">Clean Energy</div></div>
     <div class="hm-cell hm-pos-small"><div class="hm-tick">ARCC</div><div class="hm-pnl" style="color:#3fb950">~$14B</div><div class="hm-type">BDC</div></div>
     <div class="hm-cell hm-pos-small"><div class="hm-tick">KTOS</div><div class="hm-pnl" style="color:#3fb950">~$13B</div><div class="hm-type">Autonomous Defense 🛡️</div></div>
     <div class="hm-cell hm-pos-small"><div class="hm-tick">ACI</div><div class="hm-pnl" style="color:#3fb950">~$11B</div><div class="hm-type">Grocery 🛒</div></div>
-    <div class="hm-cell hm-pos-mid"><div class="hm-tick">ZBRA</div><div class="hm-pnl" style="color:#56d364">~$10.5B</div><div class="hm-type">AIDC / Robotics 🤖</div></div>
-    <div class="hm-cell hm-pos-mid"><div class="hm-tick">BEN</div><div class="hm-pnl" style="color:#56d364">~$10B</div><div class="hm-type">Asset Mgmt</div></div>
-    <div class="hm-cell hm-pos-small"><div class="hm-tick">AGNC</div><div class="hm-pnl" style="color:#3fb950">~$8B</div><div class="hm-type">Agency mREIT</div></div>
-    <div class="hm-cell hm-pos-small"><div class="hm-tick">CSL</div><div class="hm-pnl" style="color:#3fb950">~$7B</div><div class="hm-type">Building Products</div></div>
+    <div class="hm-cell hm-pos-small"><div class="hm-tick">ZBRA</div><div class="hm-pnl" style="color:#3fb950">~$10B</div><div class="hm-type">AIDC / Robotics 🤖</div></div>
+    <div class="hm-cell hm-pos-small"><div class="hm-tick">BEN</div><div class="hm-pnl" style="color:#3fb950">~$10B</div><div class="hm-type">Asset Mgmt</div></div>
+    <div class="hm-cell hm-pos-small"><div class="hm-tick">UI</div><div class="hm-pnl" style="color:#3fb950">~$10B</div><div class="hm-type">Network Infra</div></div>
+    <div class="hm-cell hm-pos-small"><div class="hm-tick">GLOB</div><div class="hm-pnl" style="color:#3fb950">~$7.0B</div><div class="hm-type">IT Services AI</div></div>
+    <div class="hm-cell hm-pos-small"><div class="hm-tick">LEGN</div><div class="hm-pnl" style="color:#3fb950">~$7.0B</div><div class="hm-type">CAR-T / CARVYKTI</div></div>
+    <div class="hm-cell hm-pos-small"><div class="hm-tick">CHWY</div><div class="hm-pnl" style="color:#3fb950">~$7.0B</div><div class="hm-type">Pet E-Commerce</div></div>
+    <div class="hm-cell hm-pos-small"><div class="hm-tick">CSL</div><div class="hm-pnl" style="color:#3fb950">~$7.0B</div><div class="hm-type">Building Products</div></div>
+    <div class="hm-cell hm-pos-small"><div class="hm-tick">OLED</div><div class="hm-pnl" style="color:#3fb950">~$5.0B</div><div class="hm-type">OLED Licensing 🔬</div></div>
+    <div class="hm-cell hm-pos-small"><div class="hm-tick">PNR</div><div class="hm-pnl" style="color:#3fb950">~$5.0B</div><div class="hm-type">Water Solutions</div></div>
     <div class="hm-cell hm-pos-small"><div class="hm-tick">IPGP</div><div class="hm-pnl" style="color:#3fb950">~$4.5B</div><div class="hm-type">Fiber Lasers 🔬</div></div>
     <div class="hm-cell hm-pos-small"><div class="hm-tick">ZETA</div><div class="hm-pnl" style="color:#3fb950">~$4.3B</div><div class="hm-type">AI Marketing</div></div>
-    <div class="hm-cell hm-pos-small"><div class="hm-tick">PHI</div><div class="hm-pnl" style="color:#3fb950">~$4B</div><div class="hm-type">Philippines Tel.</div></div>
+    <div class="hm-cell hm-pos-small"><div class="hm-tick">PHI</div><div class="hm-pnl" style="color:#3fb950">~$4.0B</div><div class="hm-type">Philippines Tel.</div></div>
     <div class="hm-cell hm-pos-small"><div class="hm-tick">POR</div><div class="hm-pnl" style="color:#3fb950">~$3.6B</div><div class="hm-type">Utility</div></div>
+    <div class="hm-cell hm-pos-small"><div class="hm-tick">IDCC</div><div class="hm-pnl" style="color:#3fb950">~$3.5B</div><div class="hm-type">Patent Licensing</div></div>
     <div class="hm-cell hm-pos-small"><div class="hm-tick">HAFN</div><div class="hm-pnl" style="color:#3fb950">~$3.2B</div><div class="hm-type">Tankers</div></div>
-    <div class="hm-cell hm-pos-small"><div class="hm-tick">PDI</div><div class="hm-pnl" style="color:#3fb950">~$3B</div><div class="hm-type">PIMCO CEF</div></div>
-    <div class="hm-cell hm-pos-small"><div class="hm-tick">AWR</div><div class="hm-pnl" style="color:#3fb950">~$3B</div><div class="hm-type">Water Utility</div></div>
+    <div class="hm-cell hm-pos-small"><div class="hm-tick">PDI</div><div class="hm-pnl" style="color:#3fb950">~$3.0B</div><div class="hm-type">PIMCO CEF</div></div>
+    <div class="hm-cell hm-pos-small"><div class="hm-tick">AWR</div><div class="hm-pnl" style="color:#3fb950">~$3.0B</div><div class="hm-type">Water Utility</div></div>
     <div class="hm-cell hm-pos-small"><div class="hm-tick">PRVA</div><div class="hm-pnl" style="color:#3fb950">~$2.9B</div><div class="hm-type">VBC / Physician</div></div>
     <div class="hm-cell hm-pos-small"><div class="hm-tick">ERO</div><div class="hm-pnl" style="color:#3fb950">~$2.9B</div><div class="hm-type">Copper Mining</div></div>
     <div class="hm-cell hm-pos-small"><div class="hm-tick">AVEX</div><div class="hm-pnl" style="color:#3fb950">~$2.8B</div><div class="hm-type">UAS / Drones 🛡️</div></div>
     <div class="hm-cell hm-pos-small"><div class="hm-tick">PEGA</div><div class="hm-pnl" style="color:#3fb950">~$2.8B</div><div class="hm-type">Enterprise AI</div></div>
     <div class="hm-cell hm-pos-small"><div class="hm-tick">LMAT</div><div class="hm-pnl" style="color:#3fb950">~$2.6B</div><div class="hm-type">Vascular Devices</div></div>
     <div class="hm-cell hm-pos-small"><div class="hm-tick">KRMN</div><div class="hm-pnl" style="color:#3fb950">~$2.5B</div><div class="hm-type">Hypersonics 🛡️</div></div>
+    <div class="hm-cell hm-pos-small"><div class="hm-tick">HOG</div><div class="hm-pnl" style="color:#3fb950">~$2.5B</div><div class="hm-type">Motorcycles</div></div>
+    <div class="hm-cell hm-pos-small"><div class="hm-tick">HL</div><div class="hm-pnl" style="color:#3fb950">~$2.5B</div><div class="hm-type">Silver Mining</div></div>
     <div class="hm-cell hm-pos-small"><div class="hm-tick">LWLG</div><div class="hm-pnl" style="color:#3fb950">~$2.4B</div><div class="hm-type">EO Polymers 🔬</div></div>
     <div class="hm-cell hm-pos-small"><div class="hm-tick">CENT</div><div class="hm-pnl" style="color:#3fb950">~$2.3B</div><div class="hm-type">Pet/Garden 🛒</div></div>
     <div class="hm-cell hm-pos-small"><div class="hm-tick">ADUS</div><div class="hm-pnl" style="color:#3fb950">~$2.2B</div><div class="hm-type">Home Care</div></div>
+    <div class="hm-cell hm-pos-small"><div class="hm-tick">OKLO</div><div class="hm-pnl" style="color:#3fb950">~$2.0B</div><div class="hm-type">Nuclear SMR ☢️</div></div>
     <div class="hm-cell hm-pos-small"><div class="hm-tick">BEAM</div><div class="hm-pnl" style="color:#3fb950">~$1.9B</div><div class="hm-type">Base Editing</div></div>
     <div class="hm-cell hm-pos-small"><div class="hm-tick">FIVN</div><div class="hm-pnl" style="color:#3fb950">~$1.6B</div><div class="hm-type">AI Contact Center</div></div>
     <div class="hm-cell hm-pos-small"><div class="hm-tick">ATRC</div><div class="hm-pnl" style="color:#3fb950">~$1.5B</div><div class="hm-type">Cardiac Surgery</div></div>
-    <div class="hm-cell hm-neg-small"><div class="hm-tick">CRGY</div><div class="hm-pnl" style="color:#f0a030">~$1.5B</div><div class="hm-type">E&P Small-cap</div></div>
+    <div class="hm-cell hm-neg-small"><div class="hm-tick">ADNT</div><div class="hm-pnl" style="color:#f0a030">~$1.5B</div><div class="hm-type">Auto Seating</div></div>
     <div class="hm-cell hm-pos-small"><div class="hm-tick">FDP</div><div class="hm-pnl" style="color:#3fb950">~$1.2B</div><div class="hm-type">Produce 🛒</div></div>
     <div class="hm-cell hm-pos-small"><div class="hm-tick">LMB</div><div class="hm-pnl" style="color:#3fb950">~$1.2B</div><div class="hm-type">MEP Services</div></div>
     <div class="hm-cell hm-pos-small"><div class="hm-tick">ATEC</div><div class="hm-pnl" style="color:#3fb950">~$1.1B</div><div class="hm-type">Spine Surgery</div></div>
-    <div class="hm-cell hm-pos-small"><div class="hm-tick">AVO</div><div class="hm-pnl" style="color:#3fb950">~$1B</div><div class="hm-type">Avocado 🛒</div></div>
+    <div class="hm-cell hm-pos-small"><div class="hm-tick">PAHC</div><div class="hm-pnl" style="color:#3fb950">~$1.0B</div><div class="hm-type">Animal Health</div></div>
+    <div class="hm-cell hm-pos-small"><div class="hm-tick">AVO</div><div class="hm-pnl" style="color:#3fb950">~$1.0B</div><div class="hm-type">Avocado 🛒</div></div>
     <div class="hm-cell hm-neg-small"><div class="hm-tick">AEVA</div><div class="hm-pnl" style="color:#f0a030">~$900M</div><div class="hm-type">4D LiDAR 🤖</div></div>
     <div class="hm-cell hm-neg-small"><div class="hm-tick">LC</div><div class="hm-pnl" style="color:#f0a030">~$800M</div><div class="hm-type">Fintech Bank</div></div>
     <div class="hm-cell hm-neg-small"><div class="hm-tick">MRNFF</div><div class="hm-pnl" style="color:#f0a030">~$750M</div><div class="hm-type">Deepwater</div></div>
@@ -520,22 +448,32 @@
     <div class="hm-cell hm-neg-small"><div class="hm-tick">SD</div><div class="hm-pnl" style="color:#f0a030">~$500M</div><div class="hm-type">E&P Royalties</div></div>
     <div class="hm-cell hm-neg-small"><div class="hm-tick">CLFD</div><div class="hm-pnl" style="color:#f0a030">~$500M</div><div class="hm-type">Fiber Hardware</div></div>
     <div class="hm-cell hm-neg-small"><div class="hm-tick">WEAT</div><div class="hm-pnl" style="color:#f0a030">~$500M</div><div class="hm-type">Wheat Futures 🌾</div></div>
+    <div class="hm-cell hm-neg-small"><div class="hm-tick">XE</div><div class="hm-pnl" style="color:#f0a030">~$500M</div><div class="hm-type">Clean Energy</div></div>
+    <div class="hm-cell hm-neg-small"><div class="hm-tick">SPPP</div><div class="hm-pnl" style="color:#f0a030">~$400M</div><div class="hm-type">Platinum ETF</div></div>
     <div class="hm-cell hm-neg-small"><div class="hm-tick">MTRX</div><div class="hm-pnl" style="color:#f0a030">~$400M</div><div class="hm-type">Industrial EPC</div></div>
     <div class="hm-cell hm-neg-small"><div class="hm-tick">OSS</div><div class="hm-pnl" style="color:#f0a030">~$385M</div><div class="hm-type">Edge AI Compute 🔬</div></div>
+    <div class="hm-cell hm-neg-small"><div class="hm-tick">POET</div><div class="hm-pnl" style="color:#f0a030">~$280M</div><div class="hm-type">Optical Engine 🔬</div></div>
     <div class="hm-cell hm-neg-small"><div class="hm-tick">TCMD</div><div class="hm-pnl" style="color:#f0a030">~$230M</div><div class="hm-type">Lymphedema DME</div></div>
-    <div class="hm-cell hm-neg-mid"><div class="hm-tick">LCTX</div><div class="hm-pnl" style="color:#ff7b72">~$220M</div><div class="hm-type">Cell Therapy</div></div>
+    <div class="hm-cell hm-neg-small"><div class="hm-tick">NVEC</div><div class="hm-pnl" style="color:#f0a030">~$230M</div><div class="hm-type">Spintronics 🤖</div></div>
+    <div class="hm-cell hm-neg-small"><div class="hm-tick">LCTX</div><div class="hm-pnl" style="color:#f0a030">~$220M</div><div class="hm-type">Cell Therapy</div></div>
     <div class="hm-cell hm-neg-small"><div class="hm-tick">FJET</div><div class="hm-pnl" style="color:#f0a030">~$216M</div><div class="hm-type">Space/Defense 🛡️</div></div>
+    <div class="hm-cell hm-neg-small"><div class="hm-tick">KRKNF</div><div class="hm-pnl" style="color:#f0a030">~$200M</div><div class="hm-type">Mining OTC</div></div>
     <div class="hm-cell hm-neg-small"><div class="hm-tick">INFU</div><div class="hm-pnl" style="color:#f0a030">~$190M</div><div class="hm-type">Oncology DME</div></div>
+    <div class="hm-cell hm-neg-mid"><div class="hm-tick">SILC</div><div class="hm-pnl" style="color:#ff7b72">~$180M</div><div class="hm-type">Network Cards 🔬</div></div>
     <div class="hm-cell hm-neg-mid"><div class="hm-tick">BDSX</div><div class="hm-pnl" style="color:#ff7b72">~$180M</div><div class="hm-type">Lung Dx</div></div>
     <div class="hm-cell hm-neg-mid"><div class="hm-tick">LTBR</div><div class="hm-pnl" style="color:#ff7b72">~$180M</div><div class="hm-type">Nuclear Fuel Tech</div></div>
     <div class="hm-cell hm-neg-small"><div class="hm-tick">ECO</div><div class="hm-pnl" style="color:#f0a030">~$150M</div><div class="hm-type">Tanker Small</div></div>
     <div class="hm-cell hm-neg-mid"><div class="hm-tick">ISOU</div><div class="hm-pnl" style="color:#ff7b72">~$150M</div><div class="hm-type">Uranium/Materials</div></div>
     <div class="hm-cell hm-neg-mid"><div class="hm-tick">IPMLF</div><div class="hm-pnl" style="color:#ff7b72">~$150M</div><div class="hm-type">Gold Mining OTC</div></div>
-    <div class="hm-cell hm-neg-small"><div class="hm-tick">TATT</div><div class="hm-pnl" style="color:#f0a030">~$120M</div><div class="hm-type">Tanker Small</div></div>
+    <div class="hm-cell hm-neg-mid"><div class="hm-tick">CSCCF</div><div class="hm-pnl" style="color:#ff7b72">~$150M</div><div class="hm-type">Packaging / Green</div></div>
+    <div class="hm-cell hm-neg-mid"><div class="hm-tick">TATT</div><div class="hm-pnl" style="color:#ff7b72">~$120M</div><div class="hm-type">Aerospace MRO 🛡️</div></div>
     <div class="hm-cell hm-neg-mid"><div class="hm-tick">HHLKF</div><div class="hm-pnl" style="color:#ff7b72">~$100M</div><div class="hm-type">Intl OTC</div></div>
     <div class="hm-cell hm-neg-mid"><div class="hm-tick">INFQ</div><div class="hm-pnl" style="color:#ff7b72">~$80M</div><div class="hm-type">Tech Small</div></div>
     <div class="hm-cell hm-neg-mid"><div class="hm-tick">SNTI</div><div class="hm-pnl" style="color:#ff7b72">~$60M</div><div class="hm-type">Gene Circuits</div></div>
-    <div class="hm-cell hm-neg-mid"><div class="hm-tick">SOTK</div><div class="hm-pnl" style="color:#ff7b72">~$40M</div><div class="hm-type">Ultrasonic Coat.</div></div>
+    <div class="hm-cell hm-neg-mid"><div class="hm-tick">NB</div><div class="hm-pnl" style="color:#ff7b72">~$50M</div><div class="hm-type">Critical Minerals ☢️</div></div>
+    <div class="hm-cell hm-neg-mid"><div class="hm-tick">SOTK</div><div class="hm-pnl" style="color:#ff7b72">~$40M</div><div class="hm-type">Ultrasonic Coat. 🏭</div></div>
+    <div class="hm-cell hm-neg-mid"><div class="hm-tick">AREC</div><div class="hm-pnl" style="color:#ff7b72">~$30M</div><div class="hm-type">Rare Earth ☢️</div></div>
+    <div class="hm-cell hm-neg-mid"><div class="hm-tick">DUOT</div><div class="hm-pnl" style="color:#ff7b72">~$30M</div><div class="hm-type">Rail AI Analytics</div></div>
     <div class="hm-cell hm-neg-mid"><div class="hm-tick">SCIA</div><div class="hm-pnl" style="color:#ff7b72">~$20M</div><div class="hm-type">Adv. Materials 🏭</div></div>
   </div>
   </div>
@@ -588,6 +526,7 @@
 <tr><th>Ticker</th><th>Company</th><th>Quality</th><th>Action</th><th>Thesis</th><th>Key Risks</th><th>Catalyst</th></tr>
 <tr class="core"><td><div class="ticker">AMP</div><div class="company">Ameriprise Financial</div></td><td>Wealth Management</td><td><span class="q-core">Core</span></td><td><span class="tag tag-hold">HOLD</span></td><td>$1.4T AUM, 35%+ ROE, aggressive buybacks compounding per-share value. Wealth management has high switching costs. Elevated rates = better spread business.</td><td class="risk">Market downturn = AUM compression; advisor attrition.</td><td class="catalyst">AUM growth; buyback continuation; advisor headcount expansion.</td></tr>
 <tr class="core"><td><div class="ticker">BEN</div><div class="company">Franklin Templeton</div></td><td>Asset Management</td><td><span class="q-core">Core</span></td><td><span class="tag tag-hold">HOLD</span></td><td>Alternatives transformation (Legg Mason, Putnam, Benefit Street) undervalued. High-margin private credit and real assets growing. Discount to peers on legacy active equity AUM concern. PEG below 1.0, trading near book.</td><td class="risk">Legacy active equity AUM outflows; alternatives integration risk.</td><td class="catalyst">Alternatives AUM growth; institutional private credit wins.</td></tr>
+<tr class="core"><td><div class="ticker">UI</div><div class="company">Ubiquiti Inc.</div></td><td>Network Infrastructure / Enterprise</td><td><span class="q-core">Core</span></td><td><span class="tag tag-hold">HOLD</span></td><td>Designer of enterprise networking, broadband, and smart home products sold direct-to-IT-professionals globally. UniFi ecosystem has extremely high switching costs — once a network is built on UniFi, migration is expensive. ~85% gross margins; fabless model; founder-controlled and cash-generative. Revenue ~$2B, market cap ~$10B+. No sell-side coverage (founder doesn't want it) creates an institutional information gap that our research fills.</td><td class="risk">Founder Robert Pera controls company with limited governance oversight. Limited financial transparency. Leverage from special dividend still present on balance sheet.</td><td class="catalyst">Network Monitoring App expansion; UniFi adoption in mid-market enterprises; any institutional initiation unlocking awareness; WISP market expansion.</td></tr>
 <tr class="spec"><td><div class="ticker">LC</div><div class="company">LendingClub</div></td><td>Fintech Banking</td><td><span class="q-spec">Speculative</span></td><td><span class="tag tag-hold">HOLD</span></td><td>Bank charter transition successful. Low-cost deposit funding now available. Consumer credit in high-rate environment is the key variable to watch.</td><td class="risk">Consumer credit delinquency in high-rate environment; competition.</td><td class="catalyst">NIM expansion; loan quality metrics; deposit growth.</td></tr>
 </table>
 
@@ -599,6 +538,10 @@
 <tr class="core"><td><div class="ticker">ADBE</div><div class="company">Adobe</div></td><td>Creative Software</td><td><span class="q-core">Core</span></td><td><span class="tag tag-hold">HOLD</span></td><td>Creative monopoly + Firefly AI integration. AI fears have not materialized — Adobe's AI enhances vs. cannibalizes. Options overlay adds upside leverage.</td><td class="risk">AI commoditization; Figma competition.</td><td class="catalyst">Firefly monetization; enterprise AI seat adoption.</td></tr>
 <tr class="core"><td><div class="ticker">PEGA</div><div class="company">Pegasystems</div></td><td>Enterprise AI Workflow / CRM</td><td><span class="q-core">Core</span></td><td><span class="tag tag-hold">HOLD</span></td><td>Blueprint AI is the "governed AI" enterprise platform — helps large organizations redesign mission-critical workflows with AI as a harness, not a replacement. Q1 FY2026: Pega Cloud ACV +29% YoY to $907M; FCF $207M (80%+ returned to shareholders). Total ACV $1.622B, +12% YoY. Backlog $2.01B, +16%. Almost all new pipeline growth now connected to Blueprint. Revenue down 10% YoY (license-to-cloud transition) — ACV and backlog tell the real story. Fair value ~$59.82 vs ~$36 current (66% discount, Simply Wall St DCF). Regulated industries (banking, insurance, healthcare, government) need auditable, governed AI — Pega's core market.</td><td class="risk">Total revenue declined 10% YoY as license mix shifts — near-term revenue headwind masking ACV growth. Founder-CEO controls voting shares — governance concentration. Geopolitical headwinds in international markets (called out Q1). Competition from ServiceNow in enterprise workflow AI.</td><td class="catalyst">Pega Cloud ACV crossing $1B (next quarter); Blueprint new-logo conversions; H2 2026 renewal cycle (management guided ACV acceleration); FedRAMP Government Blueprint wins; legacy modernization enterprise deals.</td></tr>
 <tr class="core"><td><div class="ticker">FIVN</div><div class="company">Five9</div></td><td>AI Contact Center / CCaaS</td><td><span class="q-core">Core</span></td><td><span class="tag tag-hold">HOLD</span></td><td>Q1 2026: revenue $305M, +9% YoY; AI revenue +68% YoY; AI now 13% of subscription revenue. Full-year guidance raised to ~$1.26B. $200M share buyback announced. Management: "as AI replaces seats, dollars are reallocated toward software" — AI upgrades ARPU, it doesn't cannibalize it. Less than half of global contact center agents have moved to cloud — massive TAM remaining. DCF fair value ~$56 vs ~$21 current. M&A target: Salesforce or PE.</td><td class="risk">Competitive pressure from Amazon Connect, Zoom, Salesforce. 9% total revenue growth modest for SaaS. Law firm investigations (headline risk). 76% off all-time highs.</td><td class="catalyst">AI revenue mix crossing 20%; enterprise new-logo wins; M&A approach (Salesforce/PE); Q2 2026 results.</td></tr>
+<tr class="core"><td><div class="ticker">SMCI</div><div class="company">Super Micro Computer</div></td><td>AI Server Infrastructure</td><td><span class="q-core">Core</span></td><td><span class="tag tag-hold">HOLD</span></td><td>The server and rack-scale integration layer of the AI buildout. SMCI supplies complete AI server systems — direct liquid cooling, GPU server racks — to hyperscalers and AI research labs. Revenue +200% YoY at peak; market cap ~$18–20B. Beneficiary of every GPU generation upgrade cycle as the systems integrator that packages NVIDIA compute. Accounting concerns resolved; audit completed. Direct-liquid-cooling tailwind as GPU power density grows.</td><td class="risk">Accounting history creates institutional hesitation. Competition from Dell and HPE in enterprise AI servers. Margin pressure from commodity server components.</td><td class="catalyst">FY2026 revenue acceleration; new DLC rack design wins; hyperscaler procurement cycles; any AI infrastructure capex spending surge.</td></tr>
+<tr class="core"><td><div class="ticker">GLOB</div><div class="company">Globant</div></td><td>IT Services / AI Transformation</td><td><span class="q-core">Core</span></td><td><span class="tag tag-hold">HOLD</span></td><td>Latin American-headquartered software engineering and AI transformation consultancy. Globant builds custom technology platforms for enterprise clients and is a leading AI implementation partner for large organizations migrating to AI-native workflows. High-quality engineering talent at below-US cost rates creates structural margin advantage. Serves Disney, Google, LinkedIn. Revenue ~$2.3B.</td><td class="risk">Geographic concentration in Argentina creates currency/political risk. Enterprise IT spend cycles affect revenue. Competition from Accenture and larger IT services firms.</td><td class="catalyst">AI transformation contract wins; US enterprise customer expansion; margin improvement from offshore leverage; AI tools revenue acceleration.</td></tr>
+<tr class="core"><td><div class="ticker">CTSH</div><div class="company">Cognizant Technology</div></td><td>IT Services / Enterprise AI</td><td><span class="q-core">Core</span></td><td><span class="tag tag-hold">HOLD</span></td><td>Global IT services giant (~$19B revenue) undergoing an AI transformation. Cognizant helps Fortune 500 companies implement AI across operations, supply chains, and customer experience. Trading at a discount to Accenture and Infosys on multiple metrics. Management executing a cost efficiency and AI pivot that is expanding margins. Dividend provides income support while transformation thesis plays out.</td><td class="risk">Revenue growth has lagged peers; execution on AI pivot unproven. Competition from every major IT services firm for the same enterprise AI contracts.</td><td class="catalyst">AI services revenue acceleration; margin expansion above 15%; new enterprise AI contract announcements; dividend growth.</td></tr>
+<tr class="core"><td><div class="ticker">IDCC</div><div class="company">InterDigital</div></td><td>Wireless / AI Patent Licensing</td><td><span class="q-core">Core</span></td><td><span class="tag tag-hold">HOLD</span></td><td>Pure-play wireless, video, and AI technology licensor — owns foundational IP used in every smartphone, TV, and wireless device globally. Q1 2026: EPS $2.57 vs $2.52 consensus; record smartphone ARR; full-year guidance reaffirmed. Fabless, capital-light model with ~80% gross margins. AI patent portfolio growing as AI licensing becomes the next growth vector. Avg analyst PT $462.67 vs ~$365 = 27% upside. 4/4 analysts Strong Buy.</td><td class="risk">Q2 EPS guidance below consensus ($1.41–1.60 vs $2.13 expected). Licensing disputes and litigation are inherent to the business model. Patent expiration creates runway risk.</td><td class="catalyst">New smartphone licensing renewals; AI patent licensing agreements; Brazil injunction vs Transsion resolution; Q2 results (guidance reset or beat).</td></tr>
 <tr class="spec"><td><div class="ticker">INFQ</div><div class="company">InFocus (Infleqtion)</div></td><td>Quantum / Tech Small Cap</td><td><span class="q-spec">Speculative</span></td><td><span class="tag tag-watch">WATCH</span></td><td>Quantum computing and sensing platform. Speculative position — catalyst required for meaningful sizing.</td><td class="risk">Small cap; limited liquidity; pre-revenue quantum thesis.</td><td class="catalyst">Government quantum contract wins; commercial sensing deployment.</td></tr>
 </table>
 
@@ -607,6 +550,7 @@
 <tr><th>Ticker</th><th>Program</th><th>Quality</th><th>Action</th><th>Thesis</th><th>Key Risks</th><th>Catalyst</th></tr>
 <tr class="conviction"><td><div class="ticker">BEAM</div><div class="company">Beam Therapeutics</div></td><td>Base Editing · BEAM-302 / Risto-cel</td><td><span class="q-conviction">Conviction</span></td><td><span class="tag tag-hold">HOLD + OPT</span></td><td>BEAM-302 60mg optimal dose selected for pivotal. Risto-cel BLA on track year-end 2026. FDA accelerated pathway confirmed. Pfizer option exercise validates partnership. Aug $25 calls add asymmetric upside.</td><td class="risk">BLA review timeline; FDA accelerated approval standards; capital needs.</td><td class="catalyst">BEAM-302 pivotal initiation; risto-cel BLA submission Q4 2026.</td></tr>
 <tr class="conviction"><td><div class="ticker">NTLA</div><div class="company">Intellia Therapeutics</div></td><td>In Vivo CRISPR · ATTR / HAE</td><td><span class="q-conviction">Conviction</span></td><td><span class="tag tag-hold">HOLD + OPT</span></td><td>HAELO Phase 3 confirmed in vivo CRISPR works in humans — first ever. Strongest in vivo IP estate. Regeneron partnership. Options overlay adds asymmetric upside.</td><td class="risk">ATM dilution risk; ATTR-CM FDA hold.</td><td class="catalyst">ATTR-CM hold resolution; MAGNITUDE-2 readout; analyst upgrades.</td></tr>
+<tr class="core"><td><div class="ticker">LEGN</div><div class="company">Legend Biotech</div></td><td>CAR-T / Cilta-cel (CARVYKTI)</td><td><span class="q-core">Core</span></td><td><span class="tag tag-hold">HOLD</span></td><td>CARVYKTI (cilta-cel) is one of the most effective CAR-T therapies in oncology — showing 60-80% complete response rates in relapsed/refractory multiple myeloma. Partnered with Johnson & Johnson for development, manufacturing, and commercialization. CARVYKTI revenue growing rapidly as manufacturing capacity expands to meet overwhelming demand. Legend is the biotech pure-play on this partnership; market cap ~$7B+.</td><td class="risk">Manufacturing capacity has limited revenue growth (cell therapy is complex to scale). J&J partnership means Legend shares upside. Commercial execution in a competitive CAR-T market.</td><td class="catalyst">CARVYKTI manufacturing expansion; earlier-line multiple myeloma approval; revenue acceleration; new indications (follicular lymphoma, others); J&J partnership milestone payments.</td></tr>
 <tr class="spec"><td><div class="ticker">SNTI</div><div class="company">Senti Bio</div></td><td>Gene Circuits</td><td><span class="q-spec">Speculative</span></td><td><span class="tag tag-watch">HOLD SMALL</span></td><td>Synthetic biology / gene circuit platform. Very early stage. Speculative sizing only.</td><td class="risk">Cash runway; dilution; binary outcomes.</td><td class="catalyst">Material clinical update or partnership required.</td></tr>
 <tr class="spec"><td><div class="ticker">LCTX</div><div class="company">Lineage Cell Therapeutics</div></td><td>Cell Therapy · OpRegen AMD</td><td><span class="q-spec">Speculative</span></td><td><span class="tag tag-watch">MONITOR</span></td><td>Dry AMD program (OpRegen) with Genentech partnership. Genentech controls commercialization upside.</td><td class="risk">Genentech controls commercialization upside; options actively managed.</td><td class="catalyst">OpRegen Phase 2 data; Genentech milestone updates.</td></tr>
 <tr class="spec"><td><div class="ticker">CRSP</div><div class="company">CRISPR Therapeutics</div></td><td>CASGEVY · Approved</td><td><span class="q-spec">Speculative</span></td><td><span class="tag tag-watch">TRACKING</span></td><td>World's first approved CRISPR therapy (CASGEVY) for SCD and beta-thal. 2-share tracker position.</td><td class="risk">Commercial ramp execution; pricing pressure.</td><td class="catalyst">CASGEVY commercial uptake data; revenue guidance.</td></tr>
@@ -623,6 +567,8 @@
 <tr class="spec"><td><div class="ticker">TCMD</div><div class="company">Tactile Systems Technology</div></td><td>DME / Lymphedema</td><td><span class="q-spec">Speculative</span></td><td><span class="tag tag-hold">HOLD + OPT</span></td><td>Dominant in lymphedema pneumatic compression (Flexitouch). Medicare and private insurer covered. Recurring consumable revenue stream. Direct sales force with nurse educator model.</td><td class="risk">DME competitive bidding risk; small market cap (~$230M).</td><td class="catalyst">CMS coverage expansion; revenue reacceleration; M&A interest.</td></tr>
 <tr class="spec"><td><div class="ticker">ATEC</div><div class="company">Alphatec Holdings</div></td><td>Spine Surgery</td><td><span class="q-spec">Speculative</span></td><td><span class="tag tag-hold">HOLD + OPT</span></td><td>Q1 2026: revenue $192M, +14% YoY; EPS beat by 12%. 2026 guidance: ~$882M (+15%). SafeOp Neural InformatiX differentiates from commodity spine fixation. Analyst PT ~$28 vs ~$7.68 current.</td><td class="risk">Pre-profit; Johnson Fistel investigation May 2026; EOS installation delays.</td><td class="catalyst">Return to profitability; EOS normalization; Q2 guidance reaffirmation.</td></tr>
 <tr class="core"><td><div class="ticker">INFU</div><div class="company">InfuSystem Holdings</div></td><td>Oncology Infusion / DME</td><td><span class="q-core">Core</span></td><td><span class="tag tag-hold">HOLD + OPT</span></td><td>NOPAIN Act (Jan 1, 2026): two pumps added to CMS separate payment list. Wound care +160% quarterly. FY2025: net income +118%. Roth Capital PT $15 Buy vs ~$9. Ranks Tier 1 in April 2026 peer screen. 56.4% gross margin.</td><td class="risk">MediHoney FDA remediation; GE contract restructuring gap; micro-cap (~$190M).</td><td class="catalyst">NOPAIN Act reimbursement confirmation in Q2; wound care sustaining above 50%; MediHoney FDA completion.</td></tr>
+<tr class="core"><td><div class="ticker">INSP</div><div class="company">Insulet Corp.</div></td><td>Diabetes Devices / OmniPod</td><td><span class="q-core">Core</span></td><td><span class="tag tag-hold">HOLD</span></td><td>OmniPod is the world's leading tubeless insulin pump — a wearable, wireless insulin delivery system that is dramatically better than traditional insulin pumps for Type 1 and Type 2 diabetes. Revenue growing 20%+ YoY; international expansion is the next leg. Insulet benefits from Type 2 diabetes epidemic (GLP-1 adjunct therapy) and is not threatened by GLP-1s — patients on GLP-1s who still need insulin benefit most from OmniPod. Strong recurring consumable revenue from pod replacements.</td><td class="risk">Competition from Medtronic and Abbott in the pump market. GLP-1 narrative incorrectly threatening — needs investor education. Premium device reimbursement risk.</td><td class="catalyst">OmniPod 5 international rollout; Type 2 diabetes penetration; new payor coverage; GLP-1 adjunct therapy narrative corrects to benefit.</td></tr>
+<tr class="core"><td><div class="ticker">PAHC</div><div class="company">Phibro Animal Health</div></td><td>Animal Health / Nutrition</td><td><span class="q-core">Core</span></td><td><span class="tag tag-hold">HOLD</span></td><td>Diversified animal health company serving livestock producers globally — antibiotics, anticoccidials, vaccines, and mineral nutrition. Revenue ~$1B+. Defensive non-discretionary business — livestock producers must maintain animal health regardless of economic cycle. Benefits from elevated food prices in the Hormuz disruption environment (food security focus increases biosecurity spending). Trades at a significant discount to large-cap animal health peers (IDEXX, Zoetis) given smaller cap and product breadth.</td><td class="risk">Antibiotic use in livestock under regulatory scrutiny. Competition from Zoetis, Elanco, Merck Animal Health. Customer concentration in large livestock producers.</td><td class="catalyst">New vaccine launches; international market expansion; food security spending uplift; any rerating to peer group multiples.</td></tr>
 <tr class="spec"><td><div class="ticker">BDSX</div><div class="company">Biodesix</div></td><td>Lung Cancer Diagnostics</td><td><span class="q-spec">Speculative</span></td><td><span class="tag tag-hold">HOLD</span></td><td>Proprietary lung cancer diagnostic tests (Nodify CDT, Nodify XL2). Low reimbursement risk. M&A takeout candidate.</td><td class="risk">Revenue concentration; CMS reimbursement revisions; small cap.</td><td class="catalyst">New payor coverage; revenue acceleration; M&A offer.</td></tr>
 </table>
 
@@ -635,6 +581,7 @@
 <tr class="core"><td><div class="ticker">CSL</div><div class="company">Carlisle Cos.</div></td><td>Building Products</td><td><span class="q-core">Core</span></td><td><span class="tag tag-hold">HOLD</span></td><td>Commercial roofing and waterproofing dominant player. Pricing power, high margins, reshoring construction tailwind.</td><td class="risk">Construction cycle; materials cost inflation.</td><td class="catalyst">Non-residential construction activity; roofing cycle upswing.</td></tr>
 <tr class="core"><td><div class="ticker">LMB</div><div class="company">Limbach Holdings</div></td><td>MEP / Mission-Critical Services</td><td><span class="q-core">Core</span></td><td><span class="tag tag-hold">HOLD</span></td><td>Transitioning to Owner Direct Relationships (ODR) — high-margin, recurring MEP maintenance on hospitals, data centers, life sciences. ODR grew 31.9% in FY24; data center exposure is the new growth vector. Stifel PT $107.</td><td class="risk">Legacy GCR segment cyclical; Pioneer Power integration.</td><td class="catalyst">ODR contract wins; data center MEP expansion; Q2 2026 beat.</td></tr>
 <tr class="income-r"><td><div class="ticker">POR</div><div class="company">Portland General Electric</div></td><td>Regulated Utility</td><td><span class="q-core">Core</span></td><td><span class="tag tag-hold">HOLD</span></td><td>Pacific Northwest regulated electric utility. Oregon's regulatory environment supports renewable buildout. Data center load growth from Amazon/Microsoft/Google in Oregon is an underappreciated demand driver.</td><td class="risk">Regulatory lag; wildfire liability; elevated capex.</td><td class="catalyst">Rate case approval; data center load growth; renewable capacity additions.</td></tr>
+<tr class="core"><td><div class="ticker">PNR</div><div class="company">Pentair</div></td><td>Water Treatment / Flow</td><td><span class="q-core">Core</span></td><td><span class="tag tag-hold">HOLD</span></td><td>Global leader in water treatment, filtration, and flow management. Benefits from water scarcity infrastructure buildout, industrial water treatment, and pool equipment. Pentair has undergone significant portfolio simplification — now a pure-play water solutions company. Recurring replacement filter revenue creates defensible recurring revenue base. Data center cooling is a new growth vector.</td><td class="risk">Industrial and residential construction cycle sensitivity. Pool market demand normalization post-COVID.</td><td class="catalyst">Data center water cooling contracts; water infrastructure spending acceleration; pool market recovery; recurring filtration revenue growth.</td></tr>
 <tr class="spec"><td><div class="ticker">MTRX</div><div class="company">Matrix Service</div></td><td>Industrial EPC / Storage</td><td><span class="q-spec">Speculative</span></td><td><span class="tag tag-hold">HOLD</span></td><td>Industrial contractor in aboveground storage tanks, terminals, LNG facilities. Beneficiary of US energy infrastructure buildout. Backlog is the leading revenue indicator.</td><td class="risk">Energy capex cycle sensitivity; competitive bidding.</td><td class="catalyst">Backlog growth; LNG terminal contract wins.</td></tr>
 <tr class="spec"><td><div class="ticker">SOTK</div><div class="company">Sono-Tek Corp</div></td><td>Ultrasonic Coating / Micro-cap</td><td><span class="q-spec">Speculative</span></td><td><span class="tag tag-hold">HOLD SMALL</span></td><td>Micro-cap maker of ultrasonic spray systems for semiconductor packaging, EV battery coating, medical devices, and fuel cells. ~$40M market cap — extreme small-cap risk.</td><td class="risk">Micro-cap illiquidity; customer concentration; revenue lumpiness.</td><td class="catalyst">Semiconductor packaging orders; EV battery manufacturer partnerships.</td></tr>
 <tr class="spec"><td><div class="ticker">SCIA</div><div class="company">SCI Engineered Materials</div></td><td>Advanced Materials / Semiconductor</td><td><span class="q-spec">Speculative</span></td><td><span class="tag tag-hold">HOLD SMALL</span></td><td>OTC-traded specialty materials company providing ceramic sputtering targets, backing plates, and powders for semiconductor, photonic, solar, and defense coating applications. Micro-cap (~$20M). Sits naturally alongside SOTK in the materials science layer of industrial/tech fabrication. US domestic semiconductor buildout and CHIPS Act may provide ordering tailwind.</td><td class="risk">Micro-cap OTC illiquidity — extreme. No analyst coverage. Binary outcome risk. Customer concentration.</td><td class="catalyst">CHIPS Act domestic sourcing requirements; photonic materials order win; semiconductor capex cycle; any analyst initiation.</td></tr>
@@ -643,6 +590,12 @@
 <div class="section-hdr" style="background:#1f0d1a;border-left-color:#c0392b;">── 🛒 CONSUMER STAPLES — FOOD, PRODUCE &amp; BRANDS ──</div>
 <table>
 <tr><th>Ticker</th><th>Company</th><th>Quality</th><th>Action</th><th>Thesis</th><th>Key Risks</th><th>Catalyst</th></tr>
+<tr class="core"><td><div class="ticker">CHWY</div><div class="company">Chewy</div></td><td>Pet E-Commerce / Health</td><td><span class="q-core">Core</span></td><td><span class="tag tag-hold">HOLD</span></td><td>Dominant online pet supply platform with recurring Autoship revenue (~75% of revenue). Vet care expansion via Chewy Vet Care clinics is the next margin driver. Pet humanization is a secular trend that doesn't reverse. ~$7B revenue, sticky subscription-like revenue from Autoship. Market cap ~$7B at P/S below 1.0 — historically cheap for a subscription-model e-commerce compounder.</td><td class="risk">Competition from Amazon and Walmart in pet supplies. Vet care buildout requires capital and execution. Consumer spending normalization post-COVID pet boom.</td><td class="catalyst">Chewy Vet Care clinic rollout acceleration; Autoship revenue sustaining above 75%; margin expansion; any profitability inflection.</td></tr>
+<tr class="core"><td><div class="ticker">TSCO</div><div class="company">Tractor Supply</div></td><td>Rural Lifestyle Retail</td><td><span class="q-core">Core</span></td><td><span class="tag tag-hold">HOLD</span></td><td>The dominant rural lifestyle retailer — farm supplies, livestock, pet, and home improvement. 2,200+ stores with high customer loyalty. Counter-cyclical characteristics — agricultural and rural spending is inelastic. Market cap ~$16–24B (volatile with tariff concerns). Benefits from reshoring and domestic agriculture focus. Dividend growing consistently. Hay Day loyalty program has 35M+ members.</td><td class="risk">Tariff exposure on imported goods (China-sourced merchandise). Rural consumer sensitivity to fuel prices. Amazon competition in rural markets increasing.</td><td class="catalyst">Domestic sourcing acceleration; loyalty program monetization; agricultural spending uptick; any tariff relief on imported merchandise.</td></tr>
+<tr class="spec"><td><div class="ticker">HOG</div><div class="company">Harley-Davidson</div></td><td>Premium Consumer / Motorcycles</td><td><span class="q-spec">Speculative</span></td><td><span class="tag tag-hold">HOLD</span></td><td>Iconic American brand undergoing a strategic pivot — LiveWire electric motorcycles, financial services expansion, and international market development. Trading at historically depressed multiples on cyclical demand concerns. The Harley brand has pricing power and loyalty that few consumer brands match. Dividend yield provides income support.</td><td class="risk">Premium discretionary consumer is most vulnerable to high-rate environment. EV motorcycle adoption slower than hoped. International growth requires cultural and regulatory navigation.</td><td class="catalyst">LiveWire adoption metrics; international revenue acceleration; dividend sustainability; any rate cut lifting discretionary consumer.</td></tr>
+<tr class="spec"><td><div class="ticker">DUOT</div><div class="company">Duos Technologies</div></td><td>AI Rail / Infrastructure Analytics</td><td><span class="q-spec">Speculative</span></td><td><span class="tag tag-hold">HOLD SMALL</span></td><td>Micro-cap AI analytics platform for rail and transportation infrastructure — real-time inspection systems using computer vision and AI to detect defects in freight rail cars. Contracts with Class I railroads. The only publicly traded pure-play on AI-enhanced rail safety inspection. Speculative sizing — thesis requires continued rail operator adoption.</td><td class="risk">Micro-cap (~$30M); customer concentration in rail operators; slow government procurement cycles; burn rate risk.</td><td class="catalyst">New Class I railroad contract wins; revenue above $5M quarterly; any M&A approach from larger rail technology companies.</td></tr>
+<tr class="spec"><td><div class="ticker">F</div><div class="company">Ford Motor</div></td><td>Automotive / Power Cell</td><td><span class="q-spec">Speculative</span></td><td><span class="tag tag-hold">HOLD</span></td><td>Ford is launching a new power cell (hydrogen fuel cell) manufacturing facility — a significant strategic pivot into clean energy power generation alongside its core automotive business. At ~$40B market cap, Ford trades at historically depressed multiples on EV transition concerns. The power cell factory announcement signals diversification beyond the automotive cycle. Pro Power Onboard and commercial vehicle strength are near-term positive drivers. F-150 Lightning is the leading electric pickup in North America.</td><td class="risk">EV transition capital intensity; labor cost structure (UAW); auto cycle sensitivity; intense competition from Tesla and Chinese EV makers in commercial vehicles.</td><td class="catalyst">Power cell factory production milestones; commercial van electrification contracts; F-150 Lightning market share data; any EV margin recovery.</td></tr>
+<tr class="spec"><td><div class="ticker">ADNT</div><div class="company">Adient</div></td><td>Automotive Seating</td><td><span class="q-spec">Speculative</span></td><td><span class="tag tag-hold">HOLD</span></td><td>World's largest automotive seating manufacturer. Supplying seat systems to nearly every major OEM globally. Deeply discounted on auto cycle fears — trading near book value. The auto industry transition to EVs doesn't change the need for seats; Adient has EV platform wins. Potential M&A target or spin-off of high-margin joint ventures.</td><td class="risk">Auto cycle sensitivity; tariff/supply chain risk on China JVs; leverage from prior acquisition integration.</td><td class="catalyst">EV platform seat win announcements; margin recovery; any strategic review of China JV assets; auto volume recovery.</td></tr>
 <tr class="core"><td><div class="ticker">ACI</div><div class="company">Albertsons Companies</div></td><td>Grocery Retail</td><td><span class="q-core">Core</span></td><td><span class="tag tag-hold">HOLD</span></td><td>Second-largest US grocery chain (2,200+ stores). Post-Kroger merger collapse (FTC Dec 2024), standalone re-rating thesis. ~37M loyalty members, Own Brands ~30% of sales. Dividend supports holding. Inflation favors grocery pricing power.</td><td class="risk">Kroger termination fee dispute ongoing. High leverage from pre-merger period. Walmart/Costco price competition. Amazon Fresh encroachment.</td><td class="catalyst">Own Brands penetration above 35%; debt reduction milestones; Kroger fee settlement clarity; loyalty monetization; M&amp;A approach at depressed multiples.</td></tr>
 <tr class="core"><td><div class="ticker">FDP</div><div class="company">Fresh Del Monte Produce</div></td><td>Global Produce / Distribution</td><td><span class="q-core">Core</span></td><td><span class="tag tag-hold">HOLD + OPT</span></td><td>Vertically integrated global produce company — pineapples, bananas, melons, grapes across 100+ countries. Founding-family-controlled with disciplined capital allocation. Non-discretionary food volumes structurally inelastic. ~$1.2B market cap on $4.5B+ revenue = P/S below 0.3×. Options overlay adds asymmetric upside.</td><td class="risk">Shipping cost inflation from Hormuz rerouting. Weather/crop yield risk. Dole/Chiquita competition. Working capital intensity in perishable supply chains.</td><td class="catalyst">Hormuz resolution normalizing shipping; margin recovery; value-added fresh-cut segment growth; strategic review or analyst re-rating.</td></tr>
 <tr class="core"><td><div class="ticker">AVO</div><div class="company">Mission Produce</div></td><td>Avocado / Mango Platform</td><td><span class="q-core">Core</span></td><td><span class="tag tag-hold">HOLD</span></td><td>World's leading commercial avocado distribution and sourcing platform. Q1 FY2026: revenue $334M (vs $279M prior year); adj. EBITDA +5% despite 30% avocado price decline — volumes +14% and gross margin +190bps. ~$1B market cap, $1.4B revenue, $111M adj. EBITDA. Calavo Growers acquisition in progress. Vertically integrated: farms in Mexico/Guatemala/Peru; growing mango platform.</td><td class="risk">Avocado pricing cycles severe (down 30% in Q1 2026). Calavo integration execution risk. Weather risk in growing regions. Currency risk across multi-country supply chain.</td><td class="catalyst">Calavo acquisition completion; avocado pricing cycle recovery; mango volume acceleration; gross margin above 10% sustained.</td></tr>
@@ -652,6 +605,9 @@
 <div class="section-hdr energy">── 🛢️ SMALL-CAP ENERGY / COMMODITIES ──</div>
 <table>
 <tr><th>Ticker</th><th>Company</th><th>Quality</th><th>Action</th><th>Thesis</th><th>Key Risks</th><th>Catalyst</th></tr>
+<tr class="spec"><td><div class="ticker">SPPP</div><div class="company">Sprott Physical Platinum</div></td><td>Platinum ETF / Physical</td><td><span class="q-spec">Speculative</span></td><td><span class="tag tag-hold">HOLD</span></td><td>Sprott Physical Platinum and Palladium Trust — holds physical platinum bullion in secure vaults. Platinum trades at a significant discount to gold and palladium, presenting a potential mean-reversion opportunity. Automotive and hydrogen fuel cell demand makes platinum a long-duration industrial and clean energy materials play. Hedge against USD weakness and inflation alongside gold positioning.</td><td class="risk">Platinum demand sensitive to automotive production (catalytic converters). Hydrogen economy adoption timeline uncertain. ETF structure has management fees.</td><td class="catalyst">Platinum price recovery toward historical parity with gold; hydrogen fuel cell vehicle adoption; automotive production recovery; any industrial platinum supply disruption.</td></tr>
+<tr class="spec"><td><div class="ticker">HL</div><div class="company">Hecla Mining</div></td><td>Silver / Gold Mining</td><td><span class="q-spec">Speculative</span></td><td><span class="tag tag-hold">HOLD</span></td><td>America's largest silver producer and a significant gold producer. Operations in Alaska (Greens Creek), Idaho (Lucky Friday), Nevada, and Quebec. Leveraged to silver and gold prices — both near all-time highs. Hecla has been a leveraged bet on precious metals for over 130 years. Silver at $76+ per oz creates exceptional FCF at current costs.</td><td class="risk">Mining operational risk; silver price cyclicality; leverage (debt from acquisitions). Idaho operations subject to environmental and labor risk.</td><td class="catalyst">Silver price sustained above $70; Lucky Friday expansion; Greens Creek production ramp; debt reduction milestones.</td></tr>
+<tr class="spec"><td><div class="ticker">CSCCF</div><div class="company">Cascades Inc.</div></td><td>Packaging / Sustainable Materials</td><td><span class="q-spec">Speculative</span></td><td><span class="tag tag-hold">HOLD</span></td><td>Canadian packaging and tissue products company (OTC: CSCCF). Recycled fiber-based packaging for food and consumer goods. Sustainable packaging demand is a secular tailwind as companies respond to ESG pressure. Trades at a discount on the OTC market vs. Canadian exchange listing. Benefits from elevated commodity prices in the current inflationary environment.</td><td class="risk">OTC illiquidity; packaging cycle sensitivity; input cost (recycled fiber) volatility; currency risk (CAD/USD).</td><td class="catalyst">Packaging margin recovery; sustainable packaging contract wins; any US listing or analyst coverage initiation.</td></tr>
 <tr class="spec"><td><div class="ticker">SD</div><div class="company">SandRidge Energy</div></td><td>E&P Small-cap</td><td><span class="q-spec">Speculative</span></td><td><span class="tag tag-hold">HOLD + OPT</span></td><td>Small-cap Oklahoma E&P with clean balance sheet and no debt. Cash-rich relative to size. Elevated oil prices materially benefit FCF. Significant mineral and royalty interests provide income diversification. Options position adds leverage.</td><td class="risk">Micro-cap with low institutional coverage. Production decline curves require reinvestment. Highly oil-price sensitive — Hormuz resolution would be the primary downside risk.</td><td class="catalyst">Brent staying above $90; royalty interest revaluation; capital return announcement; production update.</td></tr>
 <tr class="spec"><td><div class="ticker">IPMLF</div><div class="company">Imperial Metals Corp.</div></td><td>Gold Mining / OTC</td><td><span class="q-spec">Speculative</span></td><td><span class="tag tag-hold">HOLD SMALL</span></td><td>British Columbia-based gold and copper miner with operations at Red Chris (JV with Newcrest/Newmont) and Huckleberry. OTC-traded micro-cap (~$150M market cap). Leverage to gold prices at current elevated levels — gold above $4,500 is a strong FCF tailwind. Speculative sizing; illiquidity is the primary constraint.</td><td class="risk">OTC illiquidity; mine operational risk; BC regulatory environment; gold price cycle sensitivity.</td><td class="catalyst">Gold sustained above $4,000; Red Chris production ramp; Newcrest/Newmont JV value recognition; any analyst initiation or M&A approach.</td></tr>
 <tr class="core"><td><div class="ticker">ERO</div><div class="company">Ero Copper Corp.</div></td><td>Copper Mining / Brazil</td><td><span class="q-core">Core</span></td><td><span class="tag tag-hold">HOLD</span></td><td>High-margin, high-growth copper producer in Brazil (Caraíba, Tucuma, Xavantina). TTM revenue $924M; market cap ~$2.85B = P/S ~3×. 9 analysts Buy; avg PT $47.46 CAD vs current $27.37 = 73% upside. Copper is a critical AI/EV infrastructure material — energy transition thesis is structural and multi-decade.</td><td class="risk">Brazil operational risk (regulatory, environmental). Copper price cycle exposure. CAD/USD FX risk. Stock down from 52-week high of $39.80.</td><td class="catalyst">Copper price sustained above $4.50/lb; Tucuma Operation ramp; gold production contribution; Q2 2026 earnings (July 30).</td></tr>
@@ -729,7 +685,7 @@
 <tr class="conviction"><td><div class="ticker">ET</div></td><td>Midstream MLP</td><td><span class="q-conviction">Conviction</span></td><td><span class="tag tag-hold">HOLD</span></td><td class="bull">HOLD — yield attractive even as oil falls; infrastructure moat permanent.</td><td class="oil">HOLD — fee-based = oil-price agnostic; volumes rise with US LNG exports.</td><td class="bear">HOLD — domestic infrastructure = insulated from Hormuz directly.</td><td>LNG export volumes; Permian-to-Gulf throughput; distribution growth.</td></tr>
 <tr><td colspan="8" style="background:#3d1a00;color:#f0a030;font-weight:bold;padding:6px 10px;">── TANKERS / SHIPPING ──</td></tr>
 <tr class="core"><td><div class="ticker">HAFN</div></td><td>Product/Chemical Tankers</td><td><span class="q-core">Core</span></td><td><span class="tag tag-hold">HOLD</span></td><td class="bull">TRIM 30-40% — Hormuz reopening collapses rerouting premium.</td><td class="oil">ADD — longer voyage routes = elevated tanker rates persist.</td><td class="bear">ADD — re-escalation = maximum tanker rate premium.</td><td>Strait status; product tanker TCE rates; quarterly dividend.</td></tr>
-<tr class="spec"><td><div class="ticker">TATT</div></td><td>Tanker / Small-cap</td><td><span class="q-spec">Speculative</span></td><td><span class="tag tag-watch">WATCH</span></td><td class="bull">TRIM — resolution kills small tanker premium.</td><td class="oil">HOLD — stalemate keeps rates elevated.</td><td class="bear">HOLD small.</td><td>Tanker rates; ceasefire status.</td></tr>
+
 <tr class="spec"><td><div class="ticker">ECO</div></td><td>Tanker / Small-cap</td><td><span class="q-spec">Speculative</span></td><td><span class="tag tag-watch">WATCH</span></td><td class="bull">TRIM.</td><td class="oil">HOLD.</td><td class="bear">HOLD.</td><td>Tanker TCE rates; fleet utilization.</td></tr>
 </table>
 </div>
@@ -752,7 +708,6 @@
 </tr>
 <tr class="conviction"><td><div class="ticker">PDI</div><div class="company">PIMCO CEF</div></td><td>Leveraged Bond CEF</td><td><span class="q-conviction">Conviction</span></td><td>~14%</td><td>🔴 HIGH — fixed-rate leverage</td><td class="bull">HOLD/ADD — rate cuts lift NAV; leverage amplifies gains. Best income vehicle.</td><td class="bear">TRIM 50% → ARCC. Fixed-rate leverage = NAV compression. Swap protocol active.</td><td class="oil">HOLD — monitor 10Y trajectory. Watch NAV vs market price premium weekly.</td><td><span class="p1">Conviction — watch NAV vs premium</span></td></tr>
 <tr class="income-r"><td><div class="ticker">ARCC</div><div class="company">Ares Capital</div></td><td>BDC (Floating Rate)</td><td><span class="q-core">Core</span></td><td>~10.5%</td><td>🟢 POSITIVE — floating SOFR</td><td class="bull">HOLD — dividend stable; income reliable.</td><td class="bear">ADD — floating-rate income rises with SOFR. Best-in-class BDC.</td><td class="oil">HOLD — dividend coverage 108%; best BDC in the on-hold regime.</td><td><span class="p1">Core anchor · Add &lt;$18</span></td></tr>
-<tr class="income-r"><td><div class="ticker">AGNC</div><div class="company">AGNC Investment</div></td><td>Agency mREIT</td><td><span class="q-core">Core</span></td><td>~14-16%</td><td>🔴 HIGH — duration sensitive</td><td class="bull">ADD — rate cuts lift book value; best mREIT scenario.</td><td class="bear">TRIM 30% — book value compresses. Agency guarantee removes credit risk but not rate risk.</td><td class="oil">HOLD — yield provides carry; size for income not capital gains.</td><td><span class="p2">Income size · Rate watch</span></td></tr>
 <tr class="income-r"><td><div class="ticker">O</div><div class="company">Realty Income</div></td><td>Net Lease REIT</td><td><span class="q-core">Core</span></td><td>~5.5%</td><td>🟡 MODERATE — monthly dividend</td><td class="bull">ADD — REITs re-rate immediately on rate cut. 30-yr dividend aristocrat.</td><td class="bear">HOLD — essential retail tenants; Walgreens/7-11 defensive.</td><td class="oil">HOLD — monthly income consistent; long-duration hold.</td><td><span class="p2">Income · Hold</span></td></tr>
 <tr class="income-r"><td><div class="ticker">AWR</div><div class="company">American States Water</div></td><td>Regulated Water Utility</td><td><span class="q-core">Core</span></td><td>~2.5%</td><td>🟡 LOW-MOD — regulated rate case</td><td class="bull">HOLD — rate cuts lift utility valuations.</td><td class="bear">HOLD — 68-year consecutive dividend increase streak. Water is essential.</td><td class="oil">HOLD — most defensive income vehicle. Irreplaceable.</td><td><span class="p2">Defensive anchor</span></td></tr>
 <tr class="income-r"><td><div class="ticker">HTO</div><div class="company">HTO Specialty REIT</div></td><td>Specialty REIT</td><td><span class="q-core">Core</span></td><td>~4-5%</td><td>🟡 MODERATE</td><td class="bull">ADD — REIT re-rate on cuts.</td><td class="bear">HOLD — distribution income provides support.</td><td class="oil">HOLD — real asset inflation hedge.</td><td><span class="p3">Monitor NAV</span></td></tr>
@@ -900,6 +855,12 @@
   <td style="font-size:11px;color:#56d364;">✔ World's largest commercial Mach 2+ fleet (F-104 Starfighters). ✔ Blackstar Orbital partnership. ✔ Blue Origin New Glenn veterans joined management. ✔ STARLAUNCH orbital pathway in development. ✔ NSF C-STARS member.</td>
   <td style="font-size:11px;color:#f85149;">⚠ Johnson Fistel investigation (Feb 24, 2026) — governance risk. ⚠ Founder Svetkoff resigned — leadership transition. ⚠ 42.78% short borrow rate. ⚠ Pre-revenue micro-cap (~$216M). ⚠ 90%+ single-session drawdowns from peak.</td>
   <td class="catalyst">Investigation resolution; defense aerodynamic testing contracts; Blackstar partnership monetization; STARLAUNCH milestones.</td></tr>
+
+<tr class="spec" style="border-left:4px solid #7986cb;">
+  <td><div class="ticker" style="color:#7986cb;">TATT</div><div class="company">TAT Technologies</div></td><td>Aerospace / Defense MRO</td><td><span class="q-spec">Speculative</span></td><td><span class="tag tag-hold">HOLD</span></td>
+  <td style="font-size:11px;color:#56d364;">✔ Israeli aerospace MRO and defense supplier — engine component overhaul, heat transfer, and fuel systems for military and commercial aircraft. ✔ Direct defense beneficiary of elevated Middle East military activity. ✔ Small-cap with institutional neglect creating valuation gap.</td>
+  <td style="font-size:11px;color:#f85149;">⚠ Small cap (~$120M); Israeli geopolitical risk; customer concentration in Israeli Air Force and major aircraft OEMs.</td>
+  <td class="catalyst">IAF upgrade contracts; commercial MRO volume recovery; Israeli defense budget expansion; analyst initiation.</td></tr>
 </table>
 <div class="section-hdr" style="background:#0d1020;border-left-color:#546e7a;margin-top:18px">── 🏭 INDUSTRIALS / INFRASTRUCTURE ──</div>
 <table>
@@ -958,10 +919,19 @@
   <td style="font-size:11px;color:#56d364;">✔ Q1 2026: +55% revenue YoY; gross margin 51.6% (record). ✔ Book-to-bill 1.85. ✔ Non-GAAP profitable Q1. ✔ $10.5M new defense awards. ✔ Analyst PT $18 (Lake Street, Roth, Alliance Global).</td>
   <td style="font-size:11px;color:#f85149;">⚠ $32M TTM revenue vs ~$385M market cap — fwd P/S elevated. ⚠ Defense contract timing creates lumpiness. ⚠ Memory supply risk flagged.</td>
   <td class="catalyst">New defense contracts; commercial AI edge wins; Q2 revenue above $10M; acquisition broadening platform.</td></tr>
+<tr class="spec" style="border-left:4px solid #00b4d8;">
+  <td><div class="ticker">POET</div><div class="company">POET Technologies</div></td><td>Optical Engine Platform</td><td><span class="stage-pill stage-dev">Pre-Revenue / Platform</span></td><td>~$280M<span class="mcap-tag">~$2.80 · Pre-revenue optical engine</span></td>
+  <td>POET Optical Interposer — a chip-level platform that integrates photonic and electronic components on a single chip without the need for traditional assembly. The enabling technology for cost-effective co-packaged optics at scale. Design partnerships with major photonic transceiver manufacturers for 400G/800G datacenter applications.</td>
+  <td style="font-size:11px;color:#56d364;">✔ Optical Interposer platform addresses the core packaging cost problem in silicon photonics. ✔ Multiple foundry and customer design partnerships. ✔ Design wins progressing toward volume. ✔ AI datacenter photonic transceiver demand is the perfect TAM.</td>
+  <td style="font-size:11px;color:#f85149;">⚠ Pre-revenue; significant dilution risk as company funds development. ⚠ Platform must achieve manufacturing-ready yield at partner fabs. ⚠ Competition from established photonic integrators.</td>
+  <td class="catalyst">First optical interposer production contract; design win announcement with transceiver OEM; any revenue recognition from platform licensing.</td></tr>
 </table>
+
 <div class="section-hdr" style="background:#051a2e;border-left-color:#00b4d8;margin-top:18px">── 📐 PHOTONICS VALUATION ──</div>
 <table>
 <tr><th>Ticker</th><th>Framework</th><th>Key Metric</th><th>Current</th><th>Verdict</th><th>Dip-Buy Level</th></tr>
+<tr class="val-under"><td><div class="ticker">OLED</div><div class="company">Universal Display</div></td><td>OLED Licensing / Materials</td><td>Fwd P/E ~28×</td><td><span class="met good">1.8</span></td><td>~$5B market cap</td><td><span class="v-tag v-under">UNDERVALUED</span></td><td>OLED phosphorescent emitter licensor and materials supplier — royalties from every OLED display made. ~80% gross margins. Apple partnership. Beneficiary of OLED adoption in automotive displays and AR/VR. Trading below historical average multiple on near-term Apple concentration concerns.</td></tr>
+<tr class="val-fair"><td><div class="ticker">SILC</div><div class="company">Silicom Ltd.</div></td><td>Network Cards / Edge AI</td><td>Fwd P/E ~20×</td><td><span class="met good">1.3</span></td><td>~$180M market cap</td><td><span class="v-tag v-fair">FAIR (recovery)</span></td><td>Server network adapter cards for AI inference, edge computing, and datacenter applications. Q1 2026 revenue +33% YoY — growth inflection. Needham Hold with $28 PT but stock already above that at $38. Small-cap with thin coverage; AI server buildout is the thesis driver.</td></tr>
 <tr class="val-over"><td><div class="ticker">LWLG</div></td><td>Cash runway / milestone</td><td>P/S (distorted)</td><td><span class="met bad">~10,000×</span></td><td><span class="v-tag v-over">MOMENTUM TRADE</span></td><td>Dip to $8–10 for adds. $6 = near-cash support. Do not chase momentum.</td></tr>
 <tr class="val-fair"><td><div class="ticker">IQEPY</div></td><td>P/S + M&A premium</td><td>EV/Revenue</td><td><span class="met warn">~5× revenue</span></td><td><span class="v-tag v-fair">FAIR (M&A optionality)</span></td><td>Below £0.15 (~$0.50 USD) is attractive if M&A thesis intact.</td></tr>
 <tr class="val-under"><td><div class="ticker">IPGP</div></td><td>Fwd P/E / P/FCF</td><td>Fwd P/E ~22×</td><td><span class="met good">~22×</span></td><td><span class="v-tag v-under">UNDERVALUED</span></td><td>Below $85 is attractive. Analyst PT $131. Post-earnings selloff created the dip.</td></tr>
@@ -991,6 +961,11 @@
   <td style="font-size:11px;color:#56d364;">✔ Narrow economic moat (Morningstar) from switching costs — customers embed Zebra across printers, scanners, mobile computers and AI software. ✔ Q1 2026 beat + full-year guidance raised 9–13%. ✔ Morningstar FV $330 vs $217 = 52% upside. ✔ Manufacturing fully diversified from China — tariff risk mitigated. ✔ $500M buyback active. ✔ Brady/Honeywell PSS acquisition does not threaten Zebra's position per Morningstar.</td>
   <td style="font-size:11px;color:#f85149;">⚠ Only 25% recurring revenue — still competing for contracts. ⚠ Legacy printing segment (one-third of revenue) faces commoditization. ⚠ Memory price inflation 200bps Q2 headwind (offset by pricing by year-end per mgmt).</td>
   <td class="catalyst">RFID adoption acceleration; AI software platform wins; healthcare digitization; full-year 2026 guidance raise; recurring revenue mix improving above 30%.</td></tr>
+<tr class="spec" style="border-left:3px solid #a78bfa;">
+  <td><div class="ticker" style="color:#a78bfa;">NVEC</div><div class="company">NVE Corporation</div></td><td>Spintronics / Sensing</td><td><span class="stage-pill stage-rev">Profitable</span></td><td><span class="q-spec">Speculative</span></td><td><span class="tag tag-hold">HOLD</span></td>
+  <td style="font-size:11px;color:#56d364;">✔ Spintronics pioneer — spintronic Giant Magnetoresistance (GMR) sensors used in medical devices, industrial automation, and data storage. ✔ Fabless model with 85%+ gross margins. ✔ Profitable and dividend-paying at micro-cap scale. ✔ Licensing revenue from spintronics IP portfolio growing. ✔ Unique positioning in sensing layer of physical-world automation thesis.</td>
+  <td style="font-size:11px;color:#f85149;">⚠ Very small market cap (~$230M) with thin institutional coverage. ⚠ Revenue growth lumpy from licensing cycles. ⚠ Niche technology risk if GMR sensing is displaced.</td>
+  <td class="catalyst">New sensing product launches; licensing agreement renewals; medical device customer wins; any analyst initiation or sector attention on spintronics.</td></tr>
 <tr class="conviction" style="border-left:3px solid #a78bfa;">
   <td><div class="ticker" style="color:#a78bfa;">AEVA</div><div class="company">Aeva Technologies</div></td><td>4D FMCW LiDAR — Auto / Defense / Infrastructure</td><td><span class="stage-pill stage-dev">Revenue-Stage / Scaling</span></td><td><span class="q-conviction">Conviction</span></td><td><span class="tag tag-hold">HOLD + OPT</span></td>
   <td style="font-size:11px;color:#56d364;">✔ Q1 2026: $6.3M revenue, +90% YoY (record). ✔ FY2026 guidance: $30–36M (+70–100% YoY). ✔ Exclusive LiDAR (ex-China) for Daimler Truck autonomous freight. ✔ NVIDIA DRIVE Hyperion reference sensor globally. ✔ Top 10 European passenger OEM Atlas Ultra integration. ✔ Forterra defense autonomous ground vehicles (GPS-denied, night-vision-undetectable). ✔ Nikon APDIS MV5X commercial production (industrial). ✔ CityOS: Georgia DOT 30 intersections. ✔ Silicon photonics interest from AMD, Amazon, Meta, NVIDIA for co-packaged optics optionality. ✔ $224.5M liquidity. ✔ 4+ new commercial wins targeted for 2026.</td>
